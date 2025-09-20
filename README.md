@@ -114,6 +114,3 @@ This project is open source and available under the [MIT License](LICENSE).
   <p>Built by Andrew Brockenborough</p>
   <p>© 2025 Andrew Brockenborough. All rights reserved.</p>
 </div>
-=======
-# cs-portfolio
->>>>>>> a47764eb28410e20d73b6e56dcc48aa145d0a507
