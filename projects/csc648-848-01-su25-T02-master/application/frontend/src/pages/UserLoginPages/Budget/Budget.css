@@ -1,0 +1,313 @@
+/* Budget Page Styles */
+
+body {
+  overflow-x: hidden;
+}
+
+.budget-bg {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #54BF3F 0%, #FFE550 100%);
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  background-attachment: fixed; /* Ensures the gradient background sticks */
+}
+
+body.dark .budget-bg {
+  background: linear-gradient(180deg, #567850 0%, #1E1E1E 100%);
+  background-attachment: fixed; /* Ensures the gradient background sticks */
+}
+
+.budget-container {
+  width: 65vw;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  padding: 2vw;
+  margin: 2vw auto;
+  overflow: hidden;
+}
+
+body.dark .budget-container {
+  background: #373737;
+  color: #fff;
+}
+
+
+.table-section {
+  margin-top: 0;
+}
+
+.section-title {
+  color: #1c8536;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  line-height: 1.1;
+}
+
+body.dark .section-title {
+  color: #fff;
+}
+
+/* Sheet header styling */
+.sheet-header {
+  padding: 1vw 1.5vw;
+  border-radius: 0.5rem;
+  margin-bottom: 0;
+  background: #ffcc80;
+}
+
+.sheet-header h3 {
+  margin: 0;
+  color: #e65100;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Table container with border */
+.table-container {
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+body.dark .table-container {
+  border-color: #444;
+}
+
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+body.dark .budget-table {
+  background: #373737;
+  color: #fff;
+}
+
+.budget-table th {
+  background: #f5f5f5;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+body.dark .budget-table th {
+  background: #444;
+  color: #fff;
+}
+
+.budget-table td {
+  padding: 0.8rem;
+  text-align: center;
+  font-size: 0.9rem;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+}
+
+body.dark .budget-table td {
+  background: #444;
+  color: #fff;
+}
+
+.budget-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Total row styling - integrated inside the sheet */
+.budget-table tr.total-row td {
+  background: #fff3cd;
+  font-weight: 600;
+  color: #444; /* Adjusted text color for better contrast */
+  border-top: 2px solid #e0e0e0;
+  border-bottom: none;
+  text-align: center;
+}
+
+body.dark .budget-table tr.total-row td {
+  background: #555;
+  color: #fff; /* Adjusted text color for better contrast in dark mode */
+  border-top: 2px solid #666;
+  border-bottom: none;
+}
+
+/* Add button styling - outside the sheet */
+.add-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #fde047;
+  color: #7c5700;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-button:hover {
+  background: #facc15;
+}
+
+.budget-tabs-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.budget-tabs-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.budget-tab {
+  background: #f3f4f6;
+  color: #444;
+  font-weight: 600;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+}
+
+body.dark .budget-tab {
+  background: #555;
+  color: #fff;
+}
+
+.budget-tab.selected {
+  background: #fde047;
+  color: #7c5700;
+}
+
+.budget-tab:not(.selected):hover {
+  background: #e5e7eb;
+}
+
+body.dark .budget-tab {
+  background: #444;
+  color: #fff;
+}
+
+.budget-heading-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2vw;
+  margin: 2vw auto;
+  width: 65vw;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+body.dark .budget-heading-card {
+  background: #373737;
+  color: #fff;
+}
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* For Firefox */
+  appearance: textfield; /* Standard property for compatibility */
+}
+.budget-ai-popup {
+  position: fixed;
+  right: 1rem;
+  bottom: 5rem;
+  width: 400px;
+  height: 450px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.budget-ai-header {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.budget-ai-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.user-msg {
+  align-self: flex-end;
+  background: #daf5da;
+  padding: 0.5rem;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.ai-msg {
+  align-self: flex-start;
+  background: #f0f0f0;
+  padding: 0.5rem;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+body.dark .budget-ai-popup {
+  background: #373737;
+  color: #fff;
+}
+body.dark .budget-ai-header {
+  color: #fff;
+}
+body.dark .budget-ai-body {
+  background: #444;
+}
+body.dark .user-msg {
+  background: #2e7d32;
+  color: #fff;
+}
+body.dark .ai-msg {
+  background: #555;
+  color: #fff;
+}
+body.dark .budget-ai-popup {
+  background: #373737;
+  color: #fff;
+}
+body.dark .budget-ai-header {
+  color: #fff;
+}
+body.dark .budget-ai-body {
+  background: #444;
+}
+body.dark .user-msg {
+  background: #2e7d32;
+  color: #fff;
+}

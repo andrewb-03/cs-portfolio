@@ -1,0 +1,80 @@
+/* ============================================== */
+/* DELETE ACCOUNT PAGE STYLING */
+/* ============================================== */
+
+.settings-bg {
+  background: #86F022;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 2rem 2.5rem;
+  min-width: 350px;
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.settings-user-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.settings-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.settings-input {
+  font-size: 1.1rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1;
+}
+
+.settings-save-btn {
+  background: #86F022;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  align-self: flex-end;
+  transition: background 0.2s;
+}
+
+.settings-save-btn:hover {
+  background: #7be43c;
+}
+
+.settings-success {
+  color: #fff;
+  background: #86F022;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}

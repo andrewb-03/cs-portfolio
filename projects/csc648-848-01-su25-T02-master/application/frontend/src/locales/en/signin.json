@@ -1,0 +1,11 @@
+{
+  "title": "Sign In",
+  "email": "Email",
+  "password": "Password",
+  "forgot": "Forgot Password?",
+  "submit": "Sign In",
+  "success": "Sign in successful!",
+  "error": "Sign in failed.",
+  "redirecting": "Redirecting...",
+  "sideMessage": "Let's continue growing together..."
+}

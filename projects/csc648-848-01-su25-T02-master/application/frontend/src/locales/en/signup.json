@@ -1,0 +1,20 @@
+{
+  "title": "Sign Up",
+  "name": "Name",
+  "email": "Email",
+  "password": "Create Password",
+  "submit": "Register",
+  "tos": "I agree to the Terms of Service",
+  "viewTos": "View Terms of Service",
+  "success": "Registration successful!",
+  "error": "Signup failed.",
+  "required": "*required",
+  "allFieldsRequired": "All fields are required",
+  "invalidEmail": "Invalid email format",
+  "passwordShort": "Password must be at least 6 characters",
+  "registering": "Registering...",
+  "sideMessage": "Start sweet savings with us",
+  "bullet1": "✅ Track expenses manually",
+  "bullet2": "📸 Scan receipts automatically",
+  "bullet3": "✨ Create budgets with AI"
+}

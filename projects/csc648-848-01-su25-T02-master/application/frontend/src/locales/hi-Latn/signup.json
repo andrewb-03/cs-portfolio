@@ -1,0 +1,20 @@
+{
+  "title": "Sign Up",
+  "name": "Naam",
+  "email": "Email",
+  "password": "Password Banaiye",
+  "submit": "Register Karein",
+  "tos": "Main Terms of Service se sehmat hoon",
+  "viewTos": "Terms of Service dekhein",
+  "success": "Registration safaltapoorvak poora hua!",
+  "error": "Signup asafal raha.",
+  "required": "*anivarya",
+  "allFieldsRequired": "Sabhi fields bharna anivarya hai",
+  "invalidEmail": "Email format sahi nahi hai",
+  "passwordShort": "Password kam se kam 6 characters ka hona chahiye",
+  "registering": "Register kiya ja raha hai...",
+  "sideMessage": "Hamaare saath bachat ki meethaas shuru kijiye",
+  "bullet1": "✅ Kharch manually track kijiye",
+  "bullet2": "📸 Receipts ko svatah scan kijiye",
+  "bullet3": "✨ AI ke saath budget banaiye"
+}

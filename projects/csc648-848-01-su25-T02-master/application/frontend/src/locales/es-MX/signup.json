@@ -1,0 +1,20 @@
+{
+  "title": "Crear Cuenta",
+  "name": "Nombre",
+  "email": "Correo Electrónico",
+  "password": "Crear Contraseña",
+  "submit": "Registrarse",
+  "tos": "Acepto los Términos del Servicio",
+  "viewTos": "Ver Términos del Servicio",
+  "success": "¡Registro exitoso!",
+  "error": "Error al registrarse.",
+  "required": "*obligatorio",
+  "allFieldsRequired": "Todos los campos son obligatorios",
+  "invalidEmail": "Formato de correo inválido",
+  "passwordShort": "La contraseña debe tener al menos 6 caracteres",
+  "registering": "Registrando...",
+  "sideMessage": "Empieza a ahorrar dulcemente con nosotros",
+  "bullet1": "✅ Registra gastos manualmente",
+  "bullet2": "📸 Escanea recibos automáticamente",
+  "bullet3": "✨ Crea presupuestos con IA"
+}

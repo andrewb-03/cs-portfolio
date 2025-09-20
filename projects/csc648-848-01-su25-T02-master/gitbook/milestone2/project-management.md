@@ -1,0 +1,3 @@
+# Project Management
+
+In Milestone 2, project management started off rough because we had a set up on Notion and then the free trial expired faster than expected. After that, we quickly moved over to Gitbook since we were familiar with it due to the technical documentation. However, the free trial expired and made it excessively inconvenient to use it for project management. From then, the team lead stayed active with making sure everyone was on top of things by messaging them for updates. For milestone 3, we will attempt at using Jira (very similar to Notion), which is another project management tool. If the team lead read the free trial rules correctly, it should be able to last until the summer semester is over.&#x20;

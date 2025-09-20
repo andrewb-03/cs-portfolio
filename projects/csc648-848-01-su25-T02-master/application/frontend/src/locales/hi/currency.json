@@ -1,0 +1,13 @@
+{
+  "conversionTitle": "मुद्रा परिवर्तन",
+  "convertToLabel": "में परिवर्तित करें",
+  "convertAllToLabel": "सभी को इसमें परिवर्तित करें",
+  "convertButton": "परिवर्तित करें",
+  "conversionCompleted": "परिवर्तन पूर्ण: {{leftAmount}} {{leftCurrency}} = {{rightAmount}} {{rightCurrency}}",
+  "conversionEnterAmount": "कृपया परिवर्तित करने के लिए राशि दर्ज करें",
+  "usd": "अमेरिकी डॉलर",
+  "eur": "यूरो",
+  "jpy": "जापानी येन",
+  "arrow": "→",
+  "amountPlaceholder": "0.00"
+}

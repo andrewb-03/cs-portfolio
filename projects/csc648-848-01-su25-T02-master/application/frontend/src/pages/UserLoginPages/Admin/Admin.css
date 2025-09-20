@@ -1,0 +1,370 @@
+/* Admin Panel Styles - Following DashTrans Design Pattern */
+
+
+/* Background and Layout */
+.admin-bg {
+  background: linear-gradient(180deg, #54BF3F 0%, #FFE550 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-attachment: fixed;
+}
+
+.admin-wrapper {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  padding: 1.5rem;
+  width: 65vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header Section */
+.admin-header {
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  width: 100%;
+}
+
+.admin-title {
+  font-size: 2.5rem;
+  color: #1c8536;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.admin-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Section Styles */
+.admin-section {
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  width: 100%;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #1c8536;
+  margin: 0 0 1.5rem 0;
+  font-weight: 600;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.section-header .section-title {
+  margin: 0;
+}
+
+/* Quick Actions */
+.admin-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.admin-action-btn {
+  background: #f8fafc;
+  color: #1c1c1c;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.8rem;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.admin-action-btn:hover {
+  background: #1c8536;
+  color: #fff;
+  border-color: #1c8536;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(28, 133, 54, 0.3);
+}
+
+.action-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: currentColor;
+}
+
+.action-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.action-text {
+  font-weight: 500;
+}
+
+/* Recent Activity */
+.admin-activity {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: #fff;
+  border-radius: 0.8rem;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  background: #fff;
+  border: none;
+  margin-bottom: 0;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.activity-item:not(:last-child) {
+  border-bottom: 2px solid #e2e8f0;
+  position: relative;
+}
+
+.activity-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+}
+
+.activity-item:hover {
+  background: #f8fafc;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(28, 133, 54, 0.1);
+}
+
+.activity-item:last-child {
+  border-radius: 0 0 0.8rem 0.8rem;
+}
+
+.activity-item:only-child {
+  border-radius: 0.8rem;
+}
+
+.activity-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #1c8536;
+  border-radius: 8px;
+  color: white;
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+
+.activity-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.activity-content {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.activity-text {
+  font-weight: 600;
+  color: #1c1c1c;
+  margin: 0 0 0.25rem 0;
+}
+
+.activity-time {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.activity-description {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+.activity-status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Loading and Error States */
+.admin-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.admin-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.2rem;
+  color: #dc3545;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.8rem;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .admin-wrapper {
+    width: 90vw;
+    min-width: 0;
+    max-width: 100vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .admin-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-wrapper {
+    width: 98vw;
+    min-width: 0;
+    max-width: 100vw;
+    padding: 1rem 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .admin-header {
+    padding: 1.5rem;
+  }
+  
+  .admin-title {
+    font-size: 2rem;
+  }
+  
+  .admin-subtitle {
+    font-size: 1rem;
+  }
+  
+  .admin-section {
+    padding: 1.5rem;
+  }
+  
+  .admin-actions {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-action-btn {
+    padding: 0.8rem 1rem;
+  }
+  
+  .action-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .action-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-title {
+    font-size: 1.8rem;
+  }
+  
+  .admin-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+  }
+  
+  .action-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .action-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .activity-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .activity-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .admin-wrapper {
+    padding: 0.75rem;
+  }
+  
+  .admin-header {
+    padding: 1rem;
+  }
+  
+  .admin-section {
+    padding: 1rem;
+  }
+} 

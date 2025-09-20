@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "title": "Tome el control de sus finanzas",
+    "subtitle": "Controle, ahorre y crezca de manera inteligente — todo en una aplicación diseñada para usted.",
+    "cta": "Comenzar"
+  },
+  "features": {
+    "track": {
+      "title": "📊 Controle todo",
+      "desc": "Supervise sus gastos y ahorros automáticamente."
+    },
+    "budget": {
+      "title": "🎯 Presupueste con IA",
+      "desc": "Permita que LemonAid le ayude a generar presupuestos según sus hábitos."
+    },
+    "reimburse": {
+      "title": "🔁 Reembolsar",
+      "desc": "Envíe y reciba dinero con amigos de manera instantánea y segura."
+    },
+    "currency": {
+      "title": "💱 Convertidor de divisas",
+      "desc": "Convierta entre monedas con tasas en tiempo real y facilidad."
+    },
+    "safe": {
+      "title": "🔒 Seguro y sencillo",
+      "desc": "Creado pensando en usted."
+    }
+  }
+}

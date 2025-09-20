@@ -1,0 +1,290 @@
+/* ============================================== */
+/* ACCOUNTS PAGE STYLING */
+/* ============================================== */
+
+body {
+  transition: none; /* Disables flashing transitions */
+}
+
+.savings-heading-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  padding: 2vw;
+  width: 65vw;
+  margin: 2vw auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 96px;
+  height: 96px;
+}
+
+.savings-section-title {
+  color: #1c8536;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+  line-height: 1.1;
+}
+
+.accounts-wrapper {
+  min-height: 100vh;
+  padding: 0.2vw 1vw 1vw 1vw;
+  background: linear-gradient(180deg, #54BF3F 0%, #FFE550 100%);
+  background-attachment: fixed;
+}
+
+.accounts-main {
+  width: 65vw;
+  margin: 2vw auto;
+}
+
+.accounts-header {
+  font-size: 2rem;
+  color: black;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.account-group {
+  margin-bottom: 1rem;
+}
+
+.account-card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1.5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1vw;
+  cursor: pointer;
+}
+
+.account-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.account-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+}
+
+.account-balance {
+  font-size: 1rem;
+  color: green;
+  margin-top: 0.25rem;
+}
+
+.account-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-right {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: black;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.account-toggle-arrow {
+  display: inline-block;
+  transform: rotate(-90deg);
+  transition: transform 0.3s ease;
+}
+
+.account-toggle-arrow.open {
+  transform: rotate(0deg);
+}
+
+.account-dropdown {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.account-dropdown.open {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-separator {
+  height: 1px;
+  background-color: black;
+  margin: 0.25rem 0 0.75rem 0;
+}
+
+.nested-card {
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.add-account {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: black;
+  cursor: pointer;
+  padding-left: 0.25rem;
+}
+
+.no-bottom-radius {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.dropdown-border-wrapper {
+  border-top: none;
+  border-radius: 0 0 1rem 1rem;
+  padding: 0.75rem;
+  background-color: #fff;
+  margin-top: -1rem;
+}
+
+/* DARK MODE OVERRIDES */
+body.dark,
+body.dark .accounts-wrapper {
+  background: linear-gradient(180deg, #567850 0%, #1E1E1E 100%);
+  background-attachment: fixed;
+}
+
+body.dark .savings-heading-card {
+  background: #373737;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+
+body.dark .savings-section-title {
+  color: #fff;
+}
+
+body.dark .accounts-main {
+  /* No color change needed, inherits background */
+}
+
+body.dark .account-card {
+  background-color: #444;
+  color: #fff;
+}
+
+body.dark .account-name {
+  color: #fff;
+}
+
+body.dark .account-balance {
+  color: #a8e6cf;
+}
+
+body.dark .account-right {
+  color: #fff;
+}
+
+body.dark .nested-card {
+  background-color: #373737;
+  border: 1px solid #555;
+  color: #fff;
+}
+
+body.dark .dropdown-border-wrapper {
+  background-color: #444;
+}
+
+body.dark .add-account {
+  color: #fff;
+}
+
+body.dark .dropdown-separator {
+  background-color: #555;
+}
+
+/* --- Transactions Page Light Mode Overrides --- */
+
+.transaction-page {
+  background: linear-gradient(180deg, #54BF3F 0%, #FFE550 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding: 2vw 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.transaction-page .search-header,
+.transaction-page .search-toolbar {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Optional: Make search results/card backgrounds match dashboard */
+.transaction-page .search-results,
+.transaction-page .search-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 1rem;
+}
+
+/* Optional: Table header styling for sticky effect */
+.transaction-page table th {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 2;
+}
+
+/* --- Transactions Page Dark Mode Overrides --- */
+
+body.dark .transaction-page {
+  background: linear-gradient(180deg, #567850 0%, #1E1E1E 100%);
+  background-attachment: fixed;
+}
+
+body.dark .transaction-page .search-header,
+body.dark .transaction-page .search-toolbar {
+  background: #373737;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  color: #fff;
+}
+
+body.dark .transaction-page .search-results,
+body.dark .transaction-page .search-card {
+  background: #373737;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+body.dark .transaction-page table th {
+  background: #444;
+  color: #fff;
+}
+
+body.dark .transaction-page table td {
+  background: #373737;
+  color: #fff;
+}
+
+/* Optional: sticky legend or toolbar backgrounds */
+body.dark .transaction-page .search-legend,
+body.dark .transaction-page .search-toolbar {
+  background: #373737;
+  color: #fff;
+}
+
+/* ...add more as needed for your Search component... */

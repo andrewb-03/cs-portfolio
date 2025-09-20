@@ -1,0 +1,5 @@
+# Executive Summary
+
+_Limóney_ is an AI-enhanced budgeting web application designed to help users manage their finances all in one platform. We live in a time where many people struggle with managing recurring expenses, forgotten subscriptions, and inconsistent saving habits. Because of this, there’s a growing need for financial tools that are not just useful, but also simple and easy to use. Our motivation is to keep the application both functional and accessible so everyday users can stay on top of their finances without feeling overwhelmed by data or complex interfaces.
+
+Inspired by _EveryDollar_ and _Rocket Money_, what sets _Limóney_ apart is that it combines the best features and usability of both apps into one platform, while also integrating AI to provide personalized, intelligent budgeting insights, which is something neither of those apps currently offer. The built-in assistant provides tailored spending suggestions, identifies unnecessary expenses, and recommends ways to save based on the user’s financial habits. The result is a smarter, more intuitive budgeting experience that helps users improve their financial well-being over time. \

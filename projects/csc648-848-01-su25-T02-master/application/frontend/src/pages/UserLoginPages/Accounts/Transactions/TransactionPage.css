@@ -1,0 +1,22 @@
+/* Light mode for transactions page - match dashboard style */
+
+.transaction-page {
+  background: linear-gradient(180deg, #54BF3F 0%, #FFE550 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding: 2vw 0;
+  position: relative;
+}
+
+.transaction-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 1.5vw 2vw;
+  border-radius: 1rem;
+  margin-bottom: 2vw;
+}
+
+/* Add any additional sticky or card styles as needed for your transaction table/components */

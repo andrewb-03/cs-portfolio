@@ -1,0 +1,31 @@
+{
+  "missionTitle": "Hamaara Lakshya:",
+  "missionText": "Yeh free financial app isliye banayi gayi hai taaki paise ka samajh aur uska prabandhan aasan ho sake.",
+  "aboutTitle": "Hamaari team se miliye!",
+  "team": {
+    "emily": {
+      "name": "Emily",
+      "desc": "Mera naam Emily Perez hai. Mujhe kutte pasand hain."
+    },
+    "ishaank": {
+      "name": "Ishaank",
+      "desc": "Mera naam Ishaank Zalpuri hai. Main manoranjan ka shaukeen hoon (mujhe movies, games, waqaira pasand hain)."
+    },
+    "dani": {
+      "name": "Dani (Git Master aur Frontend Lead)",
+      "desc": "Maine logo aur webapp design kiya hai. Mujhe zombie movies aur tacos pasand hain. Main software engineering ke baare mein aur seekhna chahta hoon."
+    },
+    "gene": {
+      "name": "Gene",
+      "desc": "Mera naam Gene Orias hai. Mujhe santre pasand hain :D"
+    },
+    "jonathan": {
+      "name": "Jonathan",
+      "desc": "Mera naam Jonathan Gonzalez hai. Mujhe music banana pasand hai."
+    },
+    "andrew": {
+      "name": "Andrew",
+      "desc": "Mera naam Andrew Brockenborough hai. Mujhe computers pasand hain."
+    }
+  }
+}

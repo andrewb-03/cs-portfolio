@@ -1,0 +1,320 @@
+/* ============================
+   Layout Wrapper (Green BG)
+============================ */
+.public-layout-wrapper {
+  min-height: 100vh;
+  background-color: #54BF3F;
+  padding: 5vh 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+body.dark .public-layout-wrapper {
+  min-height: 100vh;
+  background-color: #1E1E1E;
+  padding: 5vh 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* ============================
+   Main Content Box (White)
+============================ */
+.public-layout-container {
+  background-color: white;
+  border-radius: 1.5vw;
+  padding: 5vw;
+  box-shadow: 0 1vw 3vw rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: none;
+  min-height: auto;
+  box-sizing: border-box;
+  margin: 5vw auto;
+  display: flex;
+  justify-content: center;   /* ✅ center content vertically */
+  align-items: center;       /* ✅ center content horizontally */
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+}
+
+body.dark .public-layout-container {
+  background-color: #373737;
+  border-radius: 1.5vw;
+  padding: 5vw;
+  box-shadow: 0 1vw 3vw rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: none;
+  min-height: auto;
+  box-sizing: border-box;
+  margin: 5vw auto;
+  display: flex;
+  justify-content: center;   /* ✅ center content vertically */
+  align-items: center;       /* ✅ center content horizontally */
+  flex-direction: column;
+}
+
+/* ============================
+   Responsive Content Padding
+============================ */
+@media (max-width: 1024px) {
+  .public-layout-container {
+    padding: 5vw;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .public-layout-container {
+    padding: 5vw;
+    border-radius: 2vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .public-layout-container {
+    padding: 5vw;
+    border-radius: 1.2vw;
+  }
+}
+
+/* ============================
+   Navbar
+============================ */
+.public-navbar {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  z-index: 1000;
+  background-color: #54BF3F;
+  padding: 10px 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+body.dark .public-navbar {
+  background-color: #1E1E1E;
+}
+
+.public-navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0;
+}
+
+.navbar-left {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.public-navbar-logo {
+  height: 46px;
+  margin-right: 30px;
+  display: block;
+}
+
+.public-navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+  margin-left: auto;
+  padding: 0;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.public-navbar li {
+  display: inline;
+}
+
+.public-navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  padding: 10px 25px;
+  border: none;
+  transition: all 0.2s ease;
+}
+.navbar-signin-link {
+  border: 1px solid white !important;
+  border-radius: 8px;
+}
+
+.navbar-signup-link {
+  background-color: black;
+  color: #86F022;
+  border: none !important;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.navbar-signup-link:hover {
+  color: #FFE550;
+}
+.navbar-signin-link:hover {
+  color: #FFE550;
+  border-color: #FFE550 !important;
+}
+.public-navbar a:hover,
+.public-navbar button:hover {
+  color: #FFE550;
+  border-color: #FFE550;
+}
+/* =============== Hamburger Toggle Button =============== */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* =============== Responsive Menu =============== */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .public-navbar-content {
+    flex-wrap: wrap;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    margin: 10px 0 0;
+    gap: 12px;
+  }
+
+  .navbar-links.open {
+    display: flex;
+  }
+
+  .navbar-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-links a {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+  }
+}
+  @media (min-width: 1600px) {
+  .public-layout-container {
+    max-width: none;
+  }
+
+}
+
+/* ============================
+   Language Selector Button & Dropdown
+============================ */
+.navbar-lang-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar-lang-arrow {
+  font-size: 18px;
+  margin-left: 4px;
+}
+
+.navbar-lang-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  background: #fff;
+  color: #222;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  min-width: 80px;
+  z-index: 1000;
+  padding: 4px 0;
+  list-style: none;
+}
+
+.navbar-lang-dropdown-item {
+  background: none;
+  border: none;
+  color: #222;
+  width: 100%;
+  padding: 8px 18px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.navbar-lang-dropdown-item:disabled {
+  color: #aaa;
+  cursor: default;
+}
+
+/* ============================
+   Theme Toggle Button
+============================ */
+.navbar-theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-theme-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.theme-switch {
+  width: 36px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 12px;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  transition: background 0.2s;
+}
+
+.theme-switch-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left 0.2s, background 0.2s;
+}
+
+.theme-switch-slider-on {
+  left: 18px;
+  background: #86F022;
+}

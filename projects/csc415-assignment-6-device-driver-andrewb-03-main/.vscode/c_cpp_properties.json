@@ -1,0 +1,42 @@
+{
+  "configurations": [
+    {
+      "name": "LinuxKernelModule",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "intelliSenseMode": "gcc-x64",
+      "defines": [
+        "__KERNEL__",
+        "MODULE",
+        "CONFIG_X86_64",
+        "CONFIG_64BIT"
+      ],
+      "includePath": [
+        "${workspaceFolder}/Module",
+        "/usr/src/linux-headers-6.14.0-15-generic/include",
+        "/usr/src/linux-headers-6.14.0-15-generic/arch/x86/include",
+        "/usr/src/linux-headers-6.14.0-15-generic/arch/x86/include/generated",
+        "/usr/src/linux-headers-6.14.0-15-generic/include/uapi",
+        "/usr/src/linux-headers-6.14.0-15-generic/include/generated/uapi",
+        "/lib/modules/6.14.0-15-generic/build/include",
+        "/lib/modules/6.14.0-15-generic/build/arch/x86/include",
+        "/usr/include",
+        "/usr/local/include"
+      ],
+      "browse": {
+        "path": [
+          "${workspaceFolder}/Module",
+          "/usr/src/linux-headers-6.14.0-15-generic/include",
+          "/usr/src/linux-headers-6.14.0-15-generic/arch/x86/include",
+          "/usr/src/linux-headers-6.14.0-15-generic/arch/x86/include/generated",
+          "/usr/src/linux-headers-6.14.0-15-generic/include/uapi",
+          "/usr/src/linux-headers-6.14.0-15-generic/include/generated/uapi",
+          "/lib/modules/6.14.0-15-generic/build/include",
+          "/lib/modules/6.14.0-15-generic/build/arch/x86/include"
+        ],
+        "limitSymbolsToIncludedHeaders": true
+      }
+    }
+  ],
+  "version": 4
+} 

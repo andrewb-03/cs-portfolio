@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "title": "Take Control of Your Money",
+    "subtitle": "Track, save, and grow smarter — all in one app built for everyone.",
+    "cta": "Get Started"
+  },
+  "features": {
+    "track": {
+      "title": "📊 Track Everything",
+      "desc": "Keep tabs on spending and savings automatically."
+    },
+    "budget": {
+      "title": "🎯 Budget with AI",
+      "desc": "Let LemonAid help you generate budgets based on your habits."
+    },
+    "reimburse": {
+      "title": "🔁 Reimburse ",
+      "desc": "Send and receive money with friends instantly and securely."
+    },
+    "currency": {
+      "title": "💱 Currency Converter",
+      "desc": "Convert between currencies with real-time rates and ease."
+    },
+    "safe": {
+      "title": "🔒 Safe & Simple",
+      "desc": "Built with everyone in mind"
+    }
+  }
+}

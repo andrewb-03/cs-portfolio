@@ -1,0 +1,11 @@
+{
+  "title": "Sign In",
+  "email": "Email",
+  "password": "Password",
+  "forgot": "Password bhool gaye?",
+  "submit": "Sign In Karein",
+  "success": "Sign in safaltapoorvak ho gaya!",
+  "error": "Sign in asafal raha.",
+  "redirecting": "Redirect kiya ja raha hai...",
+  "sideMessage": "Aaiye, milkar aur aage badhein..."
+}

@@ -1,0 +1,31 @@
+{
+  "missionTitle": "Nuestra Misión:",
+  "missionText": "Esta app financiera gratuita fue hecha para que manejar y aprender sobre el dinero sea más accesible.",
+  "aboutTitle": "¡Conocé a nuestro equipo!",
+  "team": {
+    "emily": {
+      "name": "Emily",
+      "desc": "Me llamo Emily Perez. Me gustan los perros."
+    },
+    "ishaank": {
+      "name": "Ishaank",
+      "desc": "Me llamo Ishaank Zalpuri. Soy un fan del entretenimiento (me encantan las pelis, los juegos, etc.)."
+    },
+    "dani": {
+      "name": "Dani (Git Master y Líder de Frontend)",
+      "desc": "Diseñé el logo y la app web. Me fascinan las pelis de zombis y los tacos. Espero seguir aprendiendo sobre ingeniería de software."
+    },
+    "gene": {
+      "name": "Gene",
+      "desc": "Me llamo Gene Orias. Me encantan las naranjas :D"
+    },
+    "jonathan": {
+      "name": "Jonathan",
+      "desc": "Me llamo Jonathan Gonzalez. Me gusta crear música."
+    },
+    "andrew": {
+      "name": "Andrew",
+      "desc": "Me llamo Andrew Brockenborough. Me gustan las compus."
+    }
+  }
+}

@@ -1,0 +1,119 @@
+.home-page {
+  padding: 40px;
+  max-width: none;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ================
+   Hero Section
+================ */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  padding-right: 5vw;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+body.dark .hero-text h1 {
+  color: #fff;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+body.dark .hero-text p {
+  color: #ccc;
+}
+
+.hero-button {
+  background-color: black;
+  color: #FFE550;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.hero-button:hover {
+  background-color: #222;
+}
+
+.hero-image {
+  max-width: 25vw;
+  height: auto;
+  flex: 1;
+  animation: wobble 3s ease-in-out infinite;
+}
+
+@keyframes wobble {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-8px) rotate(-2deg);
+  }
+  75% {
+    transform: translateX(8px) rotate(2deg);
+  }
+}
+
+/* ================
+   Feature Section
+================ */
+.features {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  text-align: center;
+}
+
+.feature {
+  flex: 1;
+  min-width: 260px;
+  max-width: 300px;
+}
+
+.feature h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+}
+
+body.dark .feature h3 {
+  color: #fff;
+}
+
+.feature p {
+  font-size: 1rem;
+  color: #444;
+}
+
+body.dark .feature p {
+  color: #bbb;
+}
+
+body.dark .feature h3 {
+  color: #fff;
+}

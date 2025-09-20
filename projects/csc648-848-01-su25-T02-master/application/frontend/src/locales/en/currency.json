@@ -1,0 +1,13 @@
+{
+  "conversionTitle": "Conversion",
+  "convertToLabel": "Convert to",
+  "convertAllToLabel": "Convert all to",
+  "convertButton": "Convert",
+  "conversionCompleted": "Conversion completed: {{leftAmount}} {{leftCurrency}} = {{rightAmount}} {{rightCurrency}}",
+  "conversionEnterAmount": "Please enter an amount to convert",
+  "usd": "US Dollar",
+  "eur": "Euro",
+  "jpy": "Japanese Yen",
+  "arrow": "→",
+  "amountPlaceholder": "0.00"
+}

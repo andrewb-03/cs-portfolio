@@ -1,0 +1,53 @@
+.settings-lang-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.settings-lang-btn {
+  background: #fff;
+  border: 1px solid #86F022;
+  color: #1C8536;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.settings-lang-arrow {
+  font-size: 18px;
+  margin-left: 4px;
+}
+
+.settings-lang-list {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 4px);
+  background: #fff;
+  color: #222;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  min-width: 120px;
+  z-index: 1000;
+  padding: 4px 0;
+  list-style: none;
+}
+
+.settings-lang-item {
+  background: none;
+  border: none;
+  color: #222;
+  width: 100%;
+  padding: 8px 18px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.settings-lang-item:disabled {
+  color: #aaa;
+  cursor: default;
+}

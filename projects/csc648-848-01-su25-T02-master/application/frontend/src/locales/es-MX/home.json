@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "title": "Toma el Control de tu Dinero",
+    "subtitle": "Registra, ahorra y crece de manera más inteligente — todo en una sola aplicación hecha para todos.",
+    "cta": "Comienza Ahora"
+  },
+  "features": {
+    "track": {
+      "title": "📊 Registra Todo",
+      "desc": "Supervisa automáticamente tus gastos y ahorros."
+    },
+    "budget": {
+      "title": "🎯 Presupuesta con IA",
+      "desc": "Deja que LemonAid te ayude a generar presupuestos según tus hábitos."
+    },
+    "reimburse": {
+      "title": "🔁 Reembolsar",
+      "desc": "Envía y recibe dinero con amigos de forma instantánea y segura."
+    },
+    "currency": {
+      "title": "💱 Convertidor de Divisas",
+      "desc": "Convierte entre monedas con tasas en tiempo real y facilidad."
+    },
+    "safe": {
+      "title": "🔒 Seguro y Sencillo",
+      "desc": "Diseñado pensando en todos"
+    }
+  }
+}

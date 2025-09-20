@@ -1,0 +1,333 @@
+.currency-convert-bg {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #54BF3F 0%, #FFE535 100%);
+  padding: 0;
+  background-attachment: fixed;
+}
+
+.currency-convert-outer-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  padding: 2vw;
+  width: 35vw;
+  margin: 2vw auto;
+  position: relative;
+}
+
+.currency-convert-title {
+  color: #1c8536;
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.1;
+}
+
+.currency-convert-inner-card {
+  background: #F0E64A; /* Updated yellow background */
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.convert-section {
+  margin-bottom: 1.5rem;
+}
+
+.convert-section:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.section-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.currency-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.currency-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.currency-input {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 350;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.currency-input:focus {
+  outline: none;
+  border-color: #86F022;
+}
+
+.currency-display {
+  background: #f5f5f5;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 350;
+  color: #333;
+  min-width: 80px;
+  text-align: center;
+}
+
+.arrow-icon {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-button {
+  background: #f5f5f5;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 350;
+  color: #333;
+  cursor: pointer;
+  min-width: 100px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropdown-button:hover {
+  background: #e8e8e8;
+}
+
+.dropdown-menu {
+  z-index: 1000;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 8rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  color: #333;
+  font-weight: 350;
+}
+
+.dropdown-item:hover {
+  background: #f5f5f5;
+}
+
+.dropdown-item:first-child {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.dropdown-item:last-child {
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.quick-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quick-option {
+  background: #f5f5f5;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 350;
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.quick-option:hover {
+  background: #e8e8e8;
+}
+
+.convert-button {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.convert-button:hover {
+  background: #333;
+}
+
+.convert-section-spacing {
+  margin-bottom: 2.5rem;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .currency-convert-bg {
+    padding: 1rem;
+  }
+  
+  .currency-convert-outer-card {
+    padding: 1.5rem;
+    width: 98vw;
+    margin: 2vw auto;
+  }
+  
+  .currency-convert-inner-card {
+    padding: 1rem;
+  }
+  
+  .currency-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .arrow-icon {
+    align-self: center;
+    transform: rotate(90deg);
+  }
+}
+
+/* ======= DARK MODE OVERRIDES ======= */
+body.dark .currency-convert-bg {
+  background: linear-gradient(180deg, #567850 0%, #1E1E1E 100%);
+  background-attachment: fixed;
+}
+
+body.dark .currency-convert-outer-card {
+  background: #373737;
+  color: #fff;
+}
+
+body.dark .currency-convert-title {
+  color: #fff;
+}
+
+body.dark .currency-convert-inner-card {
+  background: #444;
+  color: #fff;
+}
+
+body.dark .convert-section {
+  /* no color change needed */
+}
+
+body.dark .section-label {
+  color: #fff;
+}
+
+body.dark .currency-row {
+  /* no color change needed */
+}
+
+body.dark .currency-input-group {
+  /* no color change needed */
+}
+
+body.dark .currency-input {
+  background: #444;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body.dark .currency-input:focus {
+  border-color: #86F022;
+}
+
+body.dark .currency-display {
+  background: #373737;
+  color: #fff;
+}
+
+body.dark .arrow-icon {
+  color: #fff;
+}
+
+body.dark .dropdown-container {
+  /* no color change needed */
+}
+
+body.dark .dropdown-button {
+  background: #373737;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body.dark .dropdown-button:hover {
+  background: #444;
+}
+
+body.dark .dropdown-menu {
+  background: #373737;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body.dark .dropdown-item {
+  color: #fff;
+  background: none;
+}
+
+body.dark .dropdown-item:hover {
+  background: #444;
+}
+
+body.dark .quick-option {
+  background: #373737;
+  color: #fff;
+}
+
+body.dark .quick-option:hover {
+  background: #444;
+}
+
+body.dark .convert-button {
+  background: #86F022;
+  color: #222;
+}
+
+body.dark .convert-button:hover {
+  background: #54BF3F;
+  color: #fff;
+}

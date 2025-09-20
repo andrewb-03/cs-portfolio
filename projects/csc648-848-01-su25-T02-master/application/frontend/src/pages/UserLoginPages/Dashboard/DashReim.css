@@ -1,0 +1,58 @@
+.dashreimburse-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.dashreimburse-title {
+  font-size: 1.3rem;
+  color: #1c1c1c;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.dashreimburse-card {
+  display: flex;
+  justify-content: space-between;
+  background: #f8fafc;
+  border-radius: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+}
+
+.dashreimburse-status {
+  text-transform: capitalize;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+
+.dashreimburse-status.pending {
+  color: #e65100;
+}
+.dashreimburse-status.approved {
+  color: #1b5e20;
+}
+.dashreimburse-status.rejected {
+  color: #b71c1c;
+}
+
+.dashreimburse-line {
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.dashreimburse-amount {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #1c1c1c;
+  align-self: center;
+}
+
+.dashreimburse-flag {
+  text-align: center;
+  margin-top: 4px;
+  font-size: 20px;
+  cursor: pointer;
+  user-select: none;
+}

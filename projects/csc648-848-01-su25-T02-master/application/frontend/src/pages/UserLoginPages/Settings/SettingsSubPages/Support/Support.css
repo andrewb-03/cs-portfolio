@@ -1,0 +1,35 @@
+.support-page {
+  padding: 1rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+.ticket {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.support-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.support-form input,
+.support-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.support-form button {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+}
+
+.submit-msg {
+  margin-top: 0.5rem;
+  color: green;
+}

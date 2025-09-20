@@ -1,0 +1,13 @@
+{
+  "conversionTitle": "Rupantaran",
+  "convertToLabel": "Isme Badliye",
+  "convertAllToLabel": "Sabko Isme Badliye",
+  "convertButton": "Badliye",
+  "conversionCompleted": "Rupantaran poora hua: {{leftAmount}} {{leftCurrency}} = {{rightAmount}} {{rightCurrency}}",
+  "conversionEnterAmount": "Kripya ek rashi darj kijiye jo aap convert karna chahte hain",
+  "usd": "US Dollar",
+  "eur": "Euro",
+  "jpy": "Japanese Yen",
+  "arrow": "→",
+  "amountPlaceholder": "0.00"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Iniciar Sesión",
+  "email": "Correo Electrónico",
+  "password": "Contraseña",
+  "forgot": "¿Olvidaste tu contraseña?",
+  "submit": "Iniciar Sesión",
+  "success": "¡Sesión iniciada con éxito!",
+  "error": "No se pudo iniciar sesión.",
+  "redirecting": "Redirigiendo...",
+  "sideMessage": "Sigamos creciendo juntos..."
+}

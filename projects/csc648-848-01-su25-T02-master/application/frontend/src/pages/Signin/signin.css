@@ -1,0 +1,137 @@
+.signin-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8vw;
+  max-width: none;
+  margin: 0 auto;
+  padding: 0 2vw;
+  box-sizing: border-box;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.signin-side-content {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.signin-illustration {
+  min-width: auto;
+  max-width: 20vw;
+  height: auto;
+  width: 20vw;
+  object-fit: contain;
+}
+
+.signin-message {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: darkgreen;
+  margin-top: 1.2vh;
+}
+
+.signin-card {
+  background-color: #FFE550;
+  padding: 4vh 3vw;
+  border-radius: 1.6vh;
+  box-shadow: 0 0.8vh 2.4vh rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 25vw;
+  font-family: 'Inter', sans-serif;
+  flex: 1;
+}
+
+.signin-card h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.signin-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.signin-card input {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+}
+
+.signin-card button {
+  background-color: black;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.password-block{
+  display: flex;
+  flex-direction: column;
+  gap: 4px; 
+  margin-bottom: 10px; 
+}
+
+.forgot-password-link {
+  text-align: left;        
+  margin-top: 0;            
+  font-size: 0.9rem;        
+  line-height: 1.2;
+}
+
+.success-msg {
+  color: #065f46;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+.error-msg {
+  color: #b91c1c;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .signin-layout {
+    flex-direction: column;
+    gap: 4vh;
+    align-items: center;
+    text-align: center;
+  }
+
+  .signin-side-content {
+    align-items: center;
+    text-align: center;
+    flex: 1;
+  }
+
+  .signin-illustration {
+    max-width: 25vw;
+    width: 25vw;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .signin-message {
+    font-size: 1.3rem;
+  }
+
+  .signin-card {
+    padding: 2.8vh 2vw;
+    max-width: 100%;
+    flex: 1;
+  }
+}

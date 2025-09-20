@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "title": "Apne Paise Par Niyaantran Paaiye",
+    "subtitle": "Track kijiye, bachat kijiye, aur samajhdari se badhiye — sab kuch ek hi app mein, sabke liye.",
+    "cta": "Shuru Kijiye"
+  },
+  "features": {
+    "track": {
+      "title": "📊 Sab Kuch Track Kijiye",
+      "desc": "Aapke kharche aur bachat ka record svatah banayein."
+    },
+    "budget": {
+      "title": "🎯 AI ke Saath Budget Banaiye",
+      "desc": "LemonAid aapke vyavhaar ke aadhaar par aapka budget banane mein madad karega."
+    },
+    "reimburse": {
+      "title": "🔁 Paisa Wapas Kijiye",
+      "desc": "Apne doston ke saath turant aur surakshit rup se paisa bhejiye aur prapt kijiye."
+    },
+    "currency": {
+      "title": "💱 Currency Converter",
+      "desc": "Asaani se aur real-time rates ke saath currencies convert kijiye."
+    },
+    "safe": {
+      "title": "🔒 Surakshit aur Saral",
+      "desc": "Sabhi ko dhyan mein rakh kar banaya gaya hai"
+    }
+  }
+}

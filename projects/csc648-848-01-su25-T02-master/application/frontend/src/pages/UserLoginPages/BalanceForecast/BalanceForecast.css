@@ -1,0 +1,290 @@
+.balance-forecast-bg {
+  background: linear-gradient(180deg, #54BF3F 0%, #338FFF 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-attachment: fixed; /* Ensures the gradient background sticks */
+}
+
+.balance-forecast-header-card {
+  background: #e3f2fd;
+  border-radius: 0rem;
+  width: 80vw;
+  margin-bottom: 0;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.balance-forecast-header-title {
+  color: #1565c0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.balance-forecast-main-card {
+  background: #fff;
+  border-radius: 1rem;
+  width: 65vw;
+  padding: 2vw;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.balance-forecast-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.forecast-section {
+  margin-bottom: 2rem;
+}
+
+.forecast-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-header {
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  margin-bottom: 0;
+}
+
+.income-header {
+  background: #c8e6c9;
+}
+
+.food-header {
+  background: #ffcc80;
+}
+
+.section-header h3 {
+  margin: 0;
+  color: #2e7d32;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.food-header h3 {
+  color: #e65100;
+}
+
+.table-container {
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+  overflow: hidden;
+}
+
+.forecast-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.forecast-table th {
+  background: #f5f5f5;
+  padding: 0.8rem;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+}
+
+.forecast-table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.forecast-table tr:last-child td {
+  border-bottom: none;
+}
+
+.cell-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.cell-content.clickable {
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.2rem;
+  transition: background-color 0.2s ease;
+}
+
+.cell-content.clickable:hover {
+  background-color: #f0f8ff;
+}
+
+.cell-input {
+  width: 100%;
+  padding: 0.3rem;
+  border: 2px solid #2196f3;
+  border-radius: 0.2rem;
+  font-size: 0.9rem;
+  outline: none;
+  background: #fff;
+}
+
+.cell-input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+}
+
+.dropdown-arrow {
+  color: #666;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.forecast-table input {
+  width: 100%;
+  padding: 0.3rem;
+  border: 1px solid #2196f3;
+  border-radius: 0.2rem;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.action-btn {
+  width: 1.7vw;
+  height: 1.7vw;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.action-btn.approve {
+  background: #4caf50;
+  color: white;
+}
+
+.action-btn.approve:hover {
+  background: #45a049;
+}
+
+.action-btn.reject {
+  background: #f44336;
+  color: white;
+}
+
+.action-btn.reject:hover {
+  background: #da190b;
+}
+
+.action-btn.edit {
+  background: #333;
+  color: white;
+  padding: 0;
+}
+
+.action-btn.edit:hover {
+  background: #555;
+}
+
+.action-btn.edit img {
+  width: 1vw;
+  height: 1vw;
+  filter: invert(1);
+}
+
+.total-row {
+  background: #fff3cd !important;
+  font-weight: 600;
+}
+
+.total-row td {
+  border-top: 0.2vw solid #e0e0e0;
+  background: #fff3cd;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .balance-forecast-header-card,
+  .balance-forecast-main-card {
+    width: 90vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  
+  .balance-forecast-card {
+    padding: 0;
+  }
+  
+  .forecast-table {
+    font-size: 0.8rem;
+  }
+  
+  .forecast-table th,
+  .forecast-table td {
+    padding: 0.6rem 0.4rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .balance-forecast-header-card,
+  .balance-forecast-main-card {
+    width: 98vw;
+    padding: 1vw 0.5vw;
+  }
+  
+  .forecast-table {
+    font-size: 0.7rem;
+  }
+  
+  .forecast-table th,
+  .forecast-table td {
+    padding: 0.4rem 0.2rem;
+  }
+  
+  .action-buttons {
+    gap: 0.2rem;
+  }
+  
+  .action-btn {
+    width: 1.2vw;
+    height: 1.2vw;
+    font-size: 0.7rem;
+  }
+}
+
+.balance-forecast-header-bubble {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  width: 65vw;
+  margin-left: auto;
+  margin-right: auto;
+}

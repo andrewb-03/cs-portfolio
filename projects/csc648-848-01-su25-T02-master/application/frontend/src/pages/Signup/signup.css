@@ -1,0 +1,223 @@
+/* ================
+   Layout Container
+================== */
+.signup-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* ================
+   LEFT SIDE: Message + Image
+================== */
+.signup-side-content {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.signup-message {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: darkgreen;
+  margin-bottom: 24px;
+}
+
+.signup-bullets {
+  font-size: 1.5rem;       
+  line-height: 1.8;      
+}
+
+.signup-illustration {
+  max-width: 355px;
+  width: 100%;
+  height: auto;
+}
+
+/* ================
+   RIGHT SIDE: Yellow Signup Form
+================== */
+.signup-card {
+  flex: 1 1 400px;
+  background-color: #FFE550;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 450px;
+  font-family: 'Inter', sans-serif;
+}
+
+.signup-card h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+/* Form layout */
+.signup-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Labels */
+.signup-card label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 8px;
+  color: #000;
+}
+
+/* Inputs */
+.signup-card input {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+}
+
+/* Submit Button */
+.signup-card button {
+  margin-top: 12px;
+  background-color: black;
+  color: white;
+  padding: 16px 28px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.signup-card button:hover {
+  background-color: #222;
+}
+
+/* Required text styling */
+.required-text {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* ================
+   Responsive
+================== */
+@media (max-width: 1024px) {
+  .signup-layout {
+    gap: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .signup-layout {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .signup-side-content {
+    align-items: center !important;
+    text-align: center !important;
+    margin-bottom: 32px;
+  }
+
+  .signup-message {
+    font-size: 1.8rem;
+  }
+
+  .signup-bullets {
+    font-size: 1.2rem;
+  }
+
+  .signup-illustration {
+    max-width: 220px;
+    width: 100%;
+  }
+
+  .signup-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 28px;
+  }
+}
+.error-message {
+  color: red;
+  font-weight: 500;
+}
+
+.success-message {
+  color: green;
+  font-weight: 500;
+}
+
+/*=====================================
+  TERMS OF SERVICE POPUP STYLING
+=====================================*/
+
+.tos-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tos-content {
+  background: white;
+  padding: 2rem;
+  width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 12px black;
+}
+
+.tos-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: black;
+  margin-top: 1rem;
+}
+
+.tos-button {
+  background: none;
+  color: blue;
+  text-decoration: underline;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.tos-check {
+  margin-top: 1rem;
+  display: block;
+  font-size: 0.9rem;
+  color: black;
+}
+
+/*=====================================
+  TERMS OF SERVICE POPUP STYLING
+=====================================*/

@@ -1,0 +1,20 @@
+{
+  "title": "Registrarse",
+  "name": "Nombre",
+  "email": "Correo electrónico",
+  "password": "Crear contraseña",
+  "submit": "Registrar",
+  "tos": "Acepto los Términos de Servicio",
+  "viewTos": "Ver Términos de Servicio",
+  "success": "¡Registro exitoso!",
+  "error": "Error al registrarse.",
+  "required": "*requerido",
+  "allFieldsRequired": "Todos los campos son obligatorios",
+  "invalidEmail": "Formato de correo electrónico inválido",
+  "passwordShort": "La contraseña debe tener al menos 6 caracteres",
+  "registering": "Registrando...",
+  "sideMessage": "Comienza a ahorrar dulcemente con nosotros",
+  "bullet1": "✅ Controla tus gastos manualmente",
+  "bullet2": "📸 Escanea recibos automáticamente",
+  "bullet3": "✨ Crea presupuestos con IA"
+}
