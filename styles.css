@@ -286,13 +286,13 @@ body {
 
 .btn-outline {
     background: transparent;
-    color: #ffffff;
-    border: 2px solid #ffffff;
+    color: #111111;
+    border: 2px solid #111111;
 }
 
 .btn-outline:hover {
-    background: #ffffff;
-    color: #111111;
+    background: #111111;
+    color: #ffffff;
 }
 
 .hero-image {
