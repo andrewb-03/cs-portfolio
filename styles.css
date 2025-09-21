@@ -616,6 +616,51 @@ section {
     gap: 1rem;
 }
 
+/* Resume Section */
+.resume {
+    background: #ffffff;
+}
+
+.resume-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.resume-download h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.resume-download p {
+    color: #6b7280;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.resume-download .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 12px 24px;
+    font-size: 1rem;
+    background: #111111;
+    color: #ffffff;
+    border: 2px solid #111111;
+}
+
+.resume-download .btn:hover {
+    background: #333333;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.resume-download .btn i {
+    font-size: 1.1rem;
+}
+
 /* Contact Section */
 .contact {
     background: #f8fafc;
