@@ -42,10 +42,28 @@ document.addEventListener('DOMContentLoaded', function() {
         if (buttonsOutput) {
             buttonsOutput.innerHTML = `
                 <div style="display: flex; gap: 1rem; margin-top: 10px;">
-                    <a href="#projects" class="btn btn-primary" style="background: transparent; color: #00ff00; border: 2px solid #00ff00; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-size: 0.9rem;">View Work</a>
-                    <a href="#contact" class="btn btn-outline" style="background: transparent; color: #00ff00; border: 2px solid #00ff00; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-size: 0.9rem;">Get in Touch</a>
+                    <a href="#projects" class="btn btn-primary terminal-btn" style="background: transparent; color: #00ff00; border: 2px solid #00ff00; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-size: 0.9rem; opacity: 0; transform: translateY(20px); transition: all 0.6s ease;">View Work</a>
+                    <a href="#contact" class="btn btn-outline terminal-btn" style="background: transparent; color: #00ff00; border: 2px solid #00ff00; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-size: 0.9rem; opacity: 0; transform: translateY(20px); transition: all 0.6s ease;">Get in Touch</a>
                 </div>
             `;
+            
+            // Animate first button
+            setTimeout(() => {
+                const firstBtn = buttonsOutput.querySelector('.terminal-btn:first-child');
+                if (firstBtn) {
+                    firstBtn.style.opacity = '1';
+                    firstBtn.style.transform = 'translateY(0)';
+                }
+            }, 200);
+            
+            // Animate second button
+            setTimeout(() => {
+                const secondBtn = buttonsOutput.querySelector('.terminal-btn:last-child');
+                if (secondBtn) {
+                    secondBtn.style.opacity = '1';
+                    secondBtn.style.transform = 'translateY(0)';
+                }
+            }, 600);
         }
     }, 5000);
 });
