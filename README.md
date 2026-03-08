@@ -16,19 +16,23 @@ Recent Computer Science graduate from San Francisco State University with hands-
 
 ## ✨ Features
 
-- **🎯 Terminal Animation**: Interactive terminal-style hero section with typing effects
-- **📱 Responsive Design**: Optimized for all devices and screen sizes
-- **⚡ Fast Loading**: Lightweight and performance-optimized
+- **📱 Responsive Design**: Works cleanly on desktop and mobile
+- **📄 Multi-page Layout**: Dedicated pages for projects, skills, education, about, resume, and contact
+- **⚡ Fast Loading**: Lightweight static site
 - **🎨 Modern UI**: Clean, professional design with smooth animations
 - **🔗 Project Showcase**: Detailed project descriptions with live links
+- **💬 Q&A**: Optional chat-style interface for exploring the portfolio
 
 ## 🛠️ Technologies Used
 
 ### Frontend
 - **HTML5** - Semantic markup and structure
 - **CSS3** - Modern styling with animations and responsive design
-- **JavaScript** - Interactive features and terminal animation
+- **JavaScript** - Interactive features and client-side routing
 - **JetBrains Mono** - Professional developer font
+
+### Backend (optional)
+- **Python / FastAPI** - API for the Q&A feature
 
 ### Projects Featured
 - **Limóney** - Full-stack financial application (Frontend development)
@@ -52,15 +56,22 @@ Recent Computer Science graduate from San Francisco State University with hands-
 
 ```
 cs-portfolio/
-├── index.html          # Main HTML structure
-├── styles.css          # CSS styling and animations
-├── script.js           # JavaScript functionality
-├── assets/             # Project images and resources
-│   └── projects/       # Project screenshots
-├── README.md           # Project documentation
+├── index.html          # Homepage with Q&A interface
+├── about.html          # About page
+├── projects.html       # Project showcase
+├── skills.html         # Skills overview
+├── education.html      # Education details
+├── resume.html         # Resume / download
+├── contact.html        # Contact info
+├── styles.css          # Shared styles
+├── js/
+│   ├── api-config.js   # API URL configuration
+│   └── content-routes.js
+├── script.js           # Main JavaScript
+├── data/               # Content for Q&A (bio, projects, skills, etc.)
+├── main.py             # FastAPI backend (optional)
+├── requirements.txt
 └── projects/           # Source code for featured projects
-    ├── limoney/        # Full-stack web application
-    └── device-driver/  # Linux kernel module
 ```
 
 ## 🚀 Getting Started
@@ -83,30 +94,24 @@ cs-portfolio/
    open index.html
    
    # Option 2: Local server (recommended)
-   python3 -m http.server 8000
-   # Then visit: http://localhost:8000
+   python3 -m http.server 5500
+   # Then visit: http://localhost:5500
    ```
 
-### AI Chat Backend (optional)
+The live site uses a deployed backend. For local development with the Q&A feature:
 
-The AI chat requires the FastAPI backend. To run it:
+### Backend (optional)
 
 ```bash
-# Install dependencies
 pip install -r requirements.txt
-
-# Start the backend (desktop)
 uvicorn main:app --reload
-
-# For mobile testing on the same network, bind to all interfaces:
-uvicorn main:app --reload --host 0.0.0.0
 ```
 
-Then open the site on your phone using your computer's local IP (e.g. `http://192.168.1.5:5500`). The frontend auto-detects private IPs and calls `http://192.168.1.5:8000` for the API.
+The frontend defaults to `http://localhost:8000` when served from localhost. For mobile testing on the same network, run `uvicorn main:app --reload --host 0.0.0.0` and open the site via your computer's local IP.
 
-### Production API URL
+### Production
 
-When deploying the static site (e.g. GitHub Pages) with a separate API, set the API URL via the meta tag in `index.html`:
+The site is configured to use the deployed API. To point to a different API, set the meta tag in `index.html`:
 
 ```html
 <meta name="portfolio-api-url" content="https://your-api.example.com">
