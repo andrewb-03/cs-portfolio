@@ -87,6 +87,31 @@ cs-portfolio/
    # Then visit: http://localhost:8000
    ```
 
+### AI Chat Backend (optional)
+
+The AI chat requires the FastAPI backend. To run it:
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Start the backend (desktop)
+uvicorn main:app --reload
+
+# For mobile testing on the same network, bind to all interfaces:
+uvicorn main:app --reload --host 0.0.0.0
+```
+
+Then open the site on your phone using your computer's local IP (e.g. `http://192.168.1.5:5500`). The frontend auto-detects private IPs and calls `http://192.168.1.5:8000` for the API.
+
+### Production API URL
+
+When deploying the static site (e.g. GitHub Pages) with a separate API, set the API URL via the meta tag in `index.html`:
+
+```html
+<meta name="portfolio-api-url" content="https://your-api.example.com">
+```
+
 ## 🌟 Highlights
 
 - **🎓 Education**: Bachelor of Science in Computer Science, San Francisco State University

@@ -2,7 +2,9 @@
 <html lang="en" class="page-home">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Optional: set content to your production API URL for deployed sites -->
+    <meta name="portfolio-api-url" content="">
     <title>Andrew Brockenborough - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -56,6 +58,8 @@
         </div>
     </section>
 
+    <!-- API config must load before script.js for mobile/same-network support -->
+    <script src="js/api-config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="js/content-routes.js"></script>
     <script src="script.js"></script>

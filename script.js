@@ -1,5 +1,8 @@
 // AI Chat - Portfolio Agent
-const API_BASE = window.PORTFOLIO_API_URL || 'http://localhost:8000';
+// API_BASE from api-config.js (loads first): '' = same-origin, or explicit URL for local/mobile/production
+const API_BASE = typeof window.PORTFOLIO_API_URL === 'string'
+    ? window.PORTFOLIO_API_URL
+    : 'http://localhost:8000';
 
 function escapeHtml(text) {
     const div = document.createElement('div');

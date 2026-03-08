@@ -24,6 +24,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -31,6 +32,7 @@ body {
     line-height: 1.6;
     color: var(--theme-text);
     background-color: var(--theme-bg);
+    overflow-x: hidden;
 }
 
 .container {
@@ -516,7 +518,7 @@ body.page-home .hero {
     overflow: hidden;
     background: var(--theme-bg);
     padding-top: 6rem;
-    padding-bottom: 1.5rem;
+    padding-bottom: 2rem;
     padding-left: 20px;
     padding-right: 20px;
     display: flex;
@@ -541,7 +543,7 @@ body.page-home .hero-content {
     min-height: 0;
     overflow: hidden;
     width: 100%;
-    max-width: 800px;
+    max-width: 920px;
     display: flex;
     flex-direction: column;
 }
@@ -549,6 +551,7 @@ body.page-home .chat-panel {
     flex: 1;
     min-height: 0;
     max-height: calc(85vh - 6rem);
+    margin-top: -1rem; /* Pull chat up for better vertical center */
 }
 body.page-home .site-header {
     position: fixed;
@@ -572,7 +575,7 @@ body.page-home .site-logo:hover {
 
 .chat-panel {
     width: 100%;
-    max-width: 800px;
+    max-width: 920px;
     max-height: calc(85vh - 6rem);
     font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
     background: var(--theme-card-bg);
@@ -725,6 +728,25 @@ body.page-home .site-logo:hover {
         max-height: 50vh;
         min-height: 120px;
     }
+    /* Mobile tap targets (min 44px) and input usability */
+    .chat-panel .suggestion-btn {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+    .chat-panel .chat-input-wrap {
+        padding: 12px 16px 16px;
+        padding-bottom: max(16px, env(safe-area-inset-bottom));
+    }
+    .chat-panel .chat-input {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+        min-height: 44px;
+    }
+    body.page-home .hero {
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+    }
 }
 
 /* Fallback: bounded scroll area for mobile when page scroll fails (e.g. some iOS) */
@@ -736,6 +758,40 @@ body.page-home .site-logo:hover {
         min-height: 200px;
         -webkit-overflow-scrolling: touch;
         touch-action: pan-y;
+    }
+}
+
+/* Mobile usability: tap targets, readable text, no horizontal overflow */
+@media (max-width: 900px) {
+    .chat-panel .suggestion-btn {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+    .chat-panel .chat-input {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+        min-height: 44px;
+    }
+    .chat-panel .chat-input-wrap {
+        padding: 12px 16px 16px;
+    }
+    .chat-panel .terminal-output,
+    .chat-panel .chat-output {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    .container {
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+    }
+    .page-section {
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+    }
+    body.page-home .hero {
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
     }
 }
 
