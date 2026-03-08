@@ -650,6 +650,9 @@ body.page-home .site-logo:hover {
     flex: 1;
     min-height: 0;
     overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
     margin-bottom: 16px;
     padding-top: 8px;
 }
@@ -663,6 +666,77 @@ body.page-home .site-logo:hover {
 .chat-panel .chat-messages::-webkit-scrollbar-thumb {
     background: var(--theme-border);
     border-radius: 3px;
+}
+
+/* Mobile: enable scroll - use bounded chat area (reliable on iOS) */
+@media (max-width: 900px) {
+    html.page-home {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+    }
+    body.page-home {
+        display: block;
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+    }
+    body.page-home .hero {
+        flex: none;
+        min-height: 0;
+        overflow: visible;
+        padding-bottom: 2rem;
+    }
+    body.page-home .hero-container {
+        min-height: 0;
+        overflow: visible;
+    }
+    body.page-home .hero-content {
+        min-height: 0;
+        overflow: visible;
+    }
+    body.page-home .chat-panel {
+        max-height: min(85vh, 600px);
+        overflow: hidden;
+    }
+    .chat-panel {
+        max-height: min(85vh, 600px);
+        overflow: hidden;
+    }
+    .chat-body {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+    }
+    .chat-panel .chat-messages {
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+        max-height: 50vh;
+        min-height: 120px;
+    }
+}
+
+/* Fallback: bounded scroll area for mobile when page scroll fails (e.g. some iOS) */
+@media (max-width: 900px) {
+    .chat-panel .chat-messages.scroll-fallback {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 55vh;
+        min-height: 200px;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+    }
 }
 
 .chat-panel .terminal-line {
