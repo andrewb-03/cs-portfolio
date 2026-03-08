@@ -1,81 +1,164 @@
-// Terminal Typing Animation
-function typeText(element, text, speed = 50) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    
-    type();
+// AI Chat - Portfolio Agent
+const API_BASE = window.PORTFOLIO_API_URL || 'http://localhost:8000';
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
 }
 
-// Initialize terminal animation when page loads
+function appendUserQuestion(messagesEl, question) {
+    const line = document.createElement('div');
+    line.className = 'terminal-line chat-message-line';
+    line.innerHTML = `
+        <span class="prompt">$</span>
+        <span class="command">${escapeHtml(question)}</span>
+    `;
+    messagesEl.appendChild(line);
+}
+
+function renderMarkdown(text) {
+    if (typeof marked !== 'undefined') {
+        return marked.parse(text, { breaks: true });
+    }
+    return escapeHtml(text);
+}
+
+function appendAgentOutput(messagesEl, text, isError = false, matchedRoute = null) {
+    const lastLine = messagesEl.querySelector('.chat-message-line:last-of-type');
+    const question = lastLine ? lastLine.querySelector('.command')?.textContent : '';
+
+    const output = document.createElement('div');
+    output.className = 'terminal-output chat-output' + (isError ? ' chat-error-msg' : '');
+    const contentHtml = isError ? escapeHtml(text) : renderMarkdown(text);
+    output.innerHTML = contentHtml;
+    messagesEl.appendChild(output);
+
+    if (!isError && matchedRoute && typeof matchContentRoute === 'function') {
+        const ctaWrap = document.createElement('div');
+        ctaWrap.className = 'chat-cta-wrap';
+        const cta = document.createElement('a');
+        cta.href = matchedRoute.route;
+        cta.className = 'chat-cta-btn';
+        cta.textContent = matchedRoute.buttonLabel;
+        ctaWrap.appendChild(cta);
+        messagesEl.appendChild(ctaWrap);
+    }
+    return output;
+}
+
+function appendLoading(messagesEl) {
+    const line = document.createElement('div');
+    line.className = 'terminal-line chat-loading-line';
+    line.id = 'chat-loading';
+    line.innerHTML = `
+        <span class="prompt">$</span>
+        <span class="chat-loading-dots"><span>.</span><span>.</span><span>.</span></span>
+    `;
+    messagesEl.appendChild(line);
+}
+
+function removeLoading() {
+    const loading = document.getElementById('chat-loading');
+    if (loading) loading.remove();
+}
+
+function scrollToBottom() {
+    const messages = document.getElementById('chat-messages');
+    if (messages) messages.scrollTop = messages.scrollHeight;
+}
+
+async function askAgent(question) {
+    const messagesEl = document.getElementById('chat-messages');
+    const inputEl = document.getElementById('chat-input');
+    const errorEl = document.getElementById('chat-error');
+    const sendBtn = document.getElementById('chat-send');
+
+    if (!question.trim()) return;
+
+    inputEl.disabled = true;
+    if (sendBtn) sendBtn.disabled = true;
+    errorEl.textContent = '';
+    errorEl.classList.remove('visible');
+
+    appendUserQuestion(messagesEl, question);
+    appendLoading(messagesEl);
+    scrollToBottom();
+
+    let scrolledToStart = false;
+    try {
+        const res = await fetch(`${API_BASE}/ask?question=${encodeURIComponent(question)}`);
+        const data = await res.json();
+
+        removeLoading();
+
+        if (!res.ok) {
+            appendAgentOutput(messagesEl, data.detail || 'Something went wrong. Please try again.', true);
+        } else {
+            const matchedRoute = typeof matchContentRoute === 'function' ? matchContentRoute(question) : null;
+            const output = appendAgentOutput(messagesEl, data.answer || 'No response.', false, matchedRoute);
+            if (output) {
+                output.scrollIntoView({ block: 'start', behavior: 'smooth' });
+                scrolledToStart = true;
+            }
+        }
+    } catch (err) {
+        removeLoading();
+        appendAgentOutput(messagesEl, 'Could not reach the AI. Is the backend running? Try: uvicorn main:app --reload', true);
+        errorEl.textContent = err.message || 'Network error';
+        errorEl.classList.add('visible');
+    }
+
+    inputEl.disabled = false;
+    if (sendBtn) sendBtn.disabled = false;
+    inputEl.value = '';
+    inputEl.focus();
+    if (!scrolledToStart) scrollToBottom();
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(() => {
-        const nameOutput = document.getElementById('name-output');
-        if (nameOutput) {
-            typeText(nameOutput, 'Andrew J. Brockenborough', 60);
+    const inputEl = document.getElementById('chat-input');
+    const messagesEl = document.getElementById('chat-messages');
+    const sendBtn = document.getElementById('chat-send');
+
+    if (!inputEl || !messagesEl) return;
+
+    function send() {
+        const q = inputEl.value.trim();
+        if (q) askAgent(q);
+    }
+
+    inputEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            send();
         }
-    }, 800);
-    
-    setTimeout(() => {
-        const titleOutput = document.getElementById('title-output');
-        if (titleOutput) {
-            typeText(titleOutput, 'Computer Science Graduate', 60);
-        }
-    }, 2000);
-    
-    setTimeout(() => {
-        const descriptionOutput = document.getElementById('description-output');
-        if (descriptionOutput) {
-            typeText(descriptionOutput, 'Building full-stack applications and solving complex problems with clean, efficient code.', 25);
-        }
-    }, 3200);
-    
-    setTimeout(() => {
-        const buttonsOutput = document.getElementById('buttons-output');
-        if (buttonsOutput) {
-            buttonsOutput.innerHTML = `
-                <div style="display: flex; gap: 1rem; margin-top: 10px;">
-                    <a href="#projects" class="btn btn-primary terminal-btn" style="background: transparent; color: #00ff00; border: 2px solid #00ff00; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-size: 0.9rem; opacity: 0; transform: translateY(20px); transition: all 0.6s ease;">View Work</a>
-                    <a href="#contact" class="btn btn-outline terminal-btn" style="background: transparent; color: #00ff00; border: 2px solid #00ff00; padding: 8px 16px; text-decoration: none; border-radius: 4px; font-size: 0.9rem; opacity: 0; transform: translateY(20px); transition: all 0.6s ease;">Get in Touch</a>
-                </div>
-            `;
-            
-            // Animate first button
-            setTimeout(() => {
-                const firstBtn = buttonsOutput.querySelector('.terminal-btn:first-child');
-                if (firstBtn) {
-                    firstBtn.style.opacity = '1';
-                    firstBtn.style.transform = 'translateY(0)';
-                }
-            }, 200);
-            
-            // Animate second button
-            setTimeout(() => {
-                const secondBtn = buttonsOutput.querySelector('.terminal-btn:last-child');
-                if (secondBtn) {
-                    secondBtn.style.opacity = '1';
-                    secondBtn.style.transform = 'translateY(0)';
-                }
-            }, 600);
-        }
-    }, 5000);
+    });
+
+    if (sendBtn) sendBtn.addEventListener('click', send);
+
+    document.querySelectorAll('.suggestion-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const q = btn.getAttribute('data-question');
+            if (q) askAgent(q);
+        });
+    });
+
+    const cursorEl = document.getElementById('chat-cursor');
+    inputEl.addEventListener('focus', () => cursorEl?.classList.add('focused'));
+    inputEl.addEventListener('blur', () => cursorEl?.classList.remove('focused'));
+    inputEl.focus();
 });
 
-// Mobile Navigation Toggle
+// Mobile Navigation Toggle (guarded; nav is hidden in AI-first mode)
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+}
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {

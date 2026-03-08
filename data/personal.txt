@@ -1,0 +1,17 @@
+Personal Information (Optional / Easter Egg Content)
+
+Andrew's Free Time Interests:
+
+Andrew enjoys a variety of hobbies outside of software engineering.
+
+Hobbies and Interests:
+- Playing video games
+- Golf
+- Hanging out with friends
+- Car culture and automotive enthusiasm
+- Working on personal coding projects
+- Studying financial markets and the stock market
+
+Notes for AI assistant:
+This information should only be used if the user asks about Andrew's personal interests, hobbies, or what he does in his free time. 
+Do not bring this up unless the user specifically asks about personal life or hobbies.

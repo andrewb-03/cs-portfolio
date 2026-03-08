@@ -1,0 +1,44 @@
+Projects:
+
+Student Budgeting Platform
+Description:
+A full-stack web application built with a 6-person team that helps students manage budgets, track expenses, and gain financial insights.
+
+Key Features:
+- Secure authentication
+- Real-time bank account linking via Plaid
+- Responsive UI using React and Tailwind CSS
+- Backend built with Node.js, Express, and MySQL
+- Deployed on AWS using Docker
+
+Technologies:
+React, Node.js, Express, MySQL, AWS, Docker
+
+
+Optimal Routing for Self-Driving Cars
+Description:
+An algorithmic routing engine designed to optimize self-driving vehicle paths, ride pricing, and fleet profitability under real-world constraints.
+
+Key Achievements:
+- Progressed from brute-force solutions to graph-based algorithms
+- Implemented dynamic programming optimization
+- Designed algorithms to handle congestion and limited fleet size
+- Delivered complexity analysis and Python implementation
+
+Technologies:
+Python, Algorithms, Graph Theory, Dynamic Programming
+
+
+Custom Linux Device Driver
+Description:
+A loadable Linux kernel module written in C implementing core device driver functionality.
+
+Key Features:
+- Implemented open, release, read, and write file operations
+- Added ioctl commands for runtime configuration
+- Built encryption/decryption functionality
+- Developed user-space application to interact with the module
+- Verified functionality through kernel logs and testing
+
+Technologies:
+C, Linux Kernel, Device Drivers, Systems Programming

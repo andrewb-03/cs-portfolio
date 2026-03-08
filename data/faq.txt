@@ -1,0 +1,16 @@
+FAQ Data for AI Agent:
+
+Q: Who is Andrew Brockenborough?
+A: Andrew J. Brockenborough is a Computer Science graduate from San Francisco State University with experience in full-stack development, systems programming, and algorithm design.
+
+Q: What technologies does Andrew use?
+A: Andrew works with Python, JavaScript, C, C++, Java, SQL, React, Node.js, Express, MySQL, Docker, AWS, and Linux systems programming tools.
+
+Q: What are Andrew's strongest areas?
+A: Full-stack development, systems programming, algorithms, backend architecture, and building scalable applications.
+
+Q: What projects has Andrew built?
+A: A student budgeting platform, an algorithmic routing system for self-driving cars, and a custom Linux device driver.
+
+Q: What job is Andrew looking for?
+A: Andrew is seeking full-time software engineering roles where he can build scalable systems and solve complex engineering problems.

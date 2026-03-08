@@ -1,0 +1,55 @@
+Core Skills:
+
+Programming Languages:
+- Python
+- JavaScript
+- C
+- C++
+- Java
+- SQL
+
+Frontend:
+- React
+- React Router
+- Tailwind CSS
+- Radix UI
+- Recharts
+- HTML
+- CSS
+
+Backend:
+- Node.js
+- Express.js
+- REST APIs
+- Axios
+
+Databases:
+- MySQL
+- MongoDB
+
+Systems Programming:
+- Linux Kernel
+- Device Drivers
+- File Systems
+- OS Internals
+
+DevOps / Infrastructure:
+- AWS EC2
+- Docker
+- Docker Compose
+- Ubuntu Server
+
+Tools:
+- Git
+- GitHub
+- GitBook
+- Agile
+
+Computer Science Fundamentals:
+- Algorithms
+- Data Structures
+- Graph Theory
+- Dynamic Programming
+- Complexity Analysis
+- Authentication
+- Encryption

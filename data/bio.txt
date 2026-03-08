@@ -1,0 +1,13 @@
+Name: Andrew J. Brockenborough
+
+Title:
+Computer Science Graduate
+
+Location:
+San Francisco Bay Area, California
+
+Summary:
+Andrew J. Brockenborough is a Computer Science graduate from San Francisco State University with hands-on experience in full-stack web development, systems programming, and algorithm design. He builds scalable applications, optimizes performance, and solves complex technical challenges. Andrew has experience working both independently and in cross-functional teams to deliver high-quality software projects.
+
+Career Goals:
+Andrew is actively seeking full-time software engineering opportunities where he can apply his skills in full-stack development, systems programming, and algorithm design to solve complex problems and build impactful software.
