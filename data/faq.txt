@@ -10,7 +10,7 @@ Q: What are Andrew's strongest areas?
 A: Full-stack development, systems programming, algorithms, backend architecture, and building scalable applications.
 
 Q: What projects has Andrew built?
-A: A student budgeting platform, an algorithmic routing system for self-driving cars, and a custom Linux device driver.
+A: A full-stack e-commerce web application for Sworn In USA (a clothing brand), a student budgeting platform, an algorithmic routing system for self-driving cars, and a custom Linux device driver.
 
 Q: What job is Andrew looking for?
 A: Andrew is seeking full-time software engineering roles where he can build scalable systems and solve complex engineering problems.

@@ -5,6 +5,13 @@
  */
 const CONTENT_ROUTES = [
   {
+    id: 'project-sworn-in',
+    title: 'Sworn In USA — E-Commerce Web Application',
+    route: 'projects.html#project-sworn-in',
+    keywords: ['sworn', 'sworn in', 'sworn in usa', 'ecommerce', 'e-commerce', 'clothing', 'brand', 'shop', 'store', 'shopify', 'twilio', 'next.js', 'nextjs', 'typescript', 'vercel', 'freelance', 'checkout', 'cart', 'sms', 'notification'],
+    buttonLabel: 'View Project',
+  },
+  {
     id: 'project-budgeting',
     title: 'Student Budgeting Platform',
     route: 'projects.html#project-budgeting',

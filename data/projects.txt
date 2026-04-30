@@ -1,5 +1,27 @@
 Projects:
 
+Sworn In USA — E-Commerce Web Application
+Description:
+A full-stack e-commerce web application built for Sworn In USA, an American lifestyle clothing brand. Designed and engineered solo as a freelance project in 2026 with a custom dark premium aesthetic, full shopping cart, SMS and email order notifications, and a complete checkout flow.
+
+Role: Full Stack Engineer (Freelance)
+Status: In Development
+
+Key Features:
+- Custom homepage with cinematic lifestyle photography and animated marquee
+- Full product catalog with category filtering and size, color, and gender selectors
+- Slide-out cart drawer with quantity controls, promo code validation, and order summary
+- Multi-step checkout flow with form validation and order confirmation page
+- SMS notifications via Twilio for owner order alerts and customer confirmations
+- Email notifications via EmailJS
+- SEO optimized with metadata, sitemap, robots.txt, and JSON-LD structured data
+- Persistent cart via localStorage; fully responsive across all devices
+- Custom 404 page; Shopify Storefront API integration in progress
+
+Technologies:
+Next.js 14, TypeScript, Tailwind CSS, React Context API, Twilio, EmailJS, Vercel
+
+
 Student Budgeting Platform
 Description:
 A full-stack web application built with a 6-person team that helps students manage budgets, track expenses, and gain financial insights.
