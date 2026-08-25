@@ -937,50 +937,5 @@ section{position:relative}
 })();
 </script>
 
-<!-- DEMO FALLBACK: makes the terminal respond when previewing this file locally
-     without your backend. Delete this block once script.js is wired up. -->
-<script>
-(function(){
-  var input = document.getElementById('chat-input');
-  var messages = document.getElementById('chat-messages');
-  if (!input || !messages || window.__portfolioChatActive) return;
-
-  var canned = {
-    education: "Andrew holds a B.S. in Computer Science from San Francisco State (Aug 2021 – Aug 2025) and is pursuing an M.S. in Artificial Intelligence at San José State (expected May 2028).",
-    projects: "Highlights: Gloss (MV3 Chrome extension, median 1.7s streamed explanations), this AI portfolio agent, QuantAnalyst (AI chart analysis), and freelance client sites in the automotive and apparel sectors.",
-    skills: "Python, JavaScript, C++, SQL, MIPS Assembly — plus Anthropic API, RAG, structured JSON outputs, React, Node.js, PostgreSQL, Docker, and AWS EC2.",
-    contact: "Email abrockenborough03@gmail.com, or find Andrew on GitHub at andrewb-03."
-  };
-
-  function respond(q){
-    var lower = q.toLowerCase();
-    var key = Object.keys(canned).find(function(k){ return lower.indexOf(k.slice(0,5)) !== -1; });
-    return canned[key] || "Demo mode — connect the portfolio API (script.js) for real answers. Meanwhile: Andrew builds AI-native web products and ships them.";
-  }
-
-  function append(cls, text){
-    var el = document.createElement('div');
-    el.className = cls;
-    el.textContent = text;
-    messages.appendChild(el);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  function ask(q){
-    if(!q.trim()) return;
-    append('chat-msg-user', q);
-    setTimeout(function(){ append('chat-msg-ai', respond(q)); }, 350);
-    input.value = '';
-  }
-
-  input.addEventListener('keydown', function(e){
-    if(e.key === 'Enter') ask(input.value);
-  });
-  document.querySelectorAll('.suggestion-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){ ask(btn.getAttribute('data-question')); });
-  });
-})();
-</script>
-
 </body>
 </html>
