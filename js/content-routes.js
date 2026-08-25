@@ -1,84 +1,71 @@
 /**
  * Content route metadata for AI-first portfolio navigation.
- * Maps linkable content to routes, keywords, and CTA labels.
+ * Updated for the single-page redesign: routes are on-page anchors
+ * (or external links flagged with external: true).
  * Add new entries here to extend contextual navigation.
  */
 const CONTENT_ROUTES = [
   {
-    id: 'project-sworn-in',
-    title: 'Sworn In USA — E-Commerce Web Application',
-    route: 'projects.html#project-sworn-in',
-    keywords: ['sworn', 'sworn in', 'sworn in usa', 'ecommerce', 'e-commerce', 'clothing', 'brand', 'shop', 'store', 'shopify', 'twilio', 'next.js', 'nextjs', 'typescript', 'vercel', 'freelance', 'checkout', 'cart', 'sms', 'notification'],
-    buttonLabel: 'View Project',
+    id: 'project-gloss',
+    title: 'Gloss — Chrome Extension',
+    route: '#gloss',
+    keywords: ['gloss', 'chrome', 'extension', 'mv3', 'manifest', 'highlight', 'shadow dom', 'sse', 'streaming', 'byok', 'web store'],
+    buttonLabel: 'See How Gloss Works',
   },
   {
-    id: 'project-budgeting',
-    title: 'Student Budgeting Platform',
-    route: 'projects.html#project-budgeting',
-    keywords: ['budget', 'budgeting', 'plaid', 'limoney', 'limóney', 'fullstack', 'full-stack', 'student', 'financial', 'expense', 'react', 'mysql', 'docker', 'aws'],
-    buttonLabel: 'View Project',
+    id: 'project-quantanalyst',
+    title: 'QuantAnalyst — AI Chart Analysis',
+    route: '#projects',
+    keywords: ['quantanalyst', 'quant', 'chart', 'trading', 'stock', 'technical analysis', 'vision', 'multimodal', 'json schema', 'coach', 'journal'],
+    buttonLabel: 'View QuantAnalyst',
   },
   {
-    id: 'project-routing',
-    title: 'Optimal Routing for Self-Driving Cars',
-    route: 'projects.html#project-routing',
-    keywords: ['routing', 'self-driving', 'drivebot', 'algorithm', 'graph', 'dynamic programming', 'fleet', 'autonomous', 'car', 'vehicle', 'python'],
-    buttonLabel: 'View Project',
-  },
-  {
-    id: 'project-driver',
-    title: 'Custom Linux Device Driver',
-    route: 'projects.html#project-driver',
-    keywords: ['driver', 'device', 'linux', 'kernel', 'encryption', 'ioctl', 'module', 'c programming', 'systems programming'],
-    buttonLabel: 'View Project',
-  },
-  {
-    id: 'about',
-    title: 'About Andrew',
-    route: 'about.html',
-    keywords: ['about', 'who', 'background', 'bio', 'introduce', 'introduction', 'experience', 'career'],
-    buttonLabel: 'About Me',
-  },
-  {
-    id: 'skills',
-    title: 'Skills',
-    route: 'skills.html',
-    keywords: ['skill', 'skills', 'technologies', 'tech', 'languages', 'proficient', 'expertise'],
-    buttonLabel: 'View Skills',
-  },
-  {
-    id: 'education',
-    title: 'Education',
-    route: 'education.html',
-    keywords: ['education', 'degree', 'university', 'school', 'sfsu', 'san francisco', 'graduate', 'graduated'],
-    buttonLabel: 'View Education',
+    id: 'project-clients',
+    title: 'Freelance Client Sites',
+    route: '#projects',
+    keywords: ['freelance', 'client', 'clients', 'automotive', 'apparel', 'drift maps', 'driftmap', '38carmodz', 'bm wrapz', 'website', 'websites'],
+    buttonLabel: 'View Client Work',
   },
   {
     id: 'projects',
     title: 'Projects',
-    route: 'projects.html',
-    keywords: ['project', 'projects', 'work', 'portfolio', 'built', 'developed'],
+    route: '#projects',
+    keywords: ['project', 'projects', 'work', 'portfolio', 'built', 'developed', 'shipped'],
     buttonLabel: 'View All Projects',
+  },
+  {
+    id: 'skills',
+    title: 'Skills',
+    route: '#skills',
+    keywords: ['skill', 'skills', 'technologies', 'tech', 'stack', 'languages', 'proficient', 'expertise', 'react', 'python', 'docker', 'aws'],
+    buttonLabel: 'View Skills',
+  },
+  {
+    id: 'background',
+    title: 'Experience & Education',
+    route: '#history',
+    keywords: ['education', 'degree', 'university', 'school', 'sjsu', 'sfsu', 'san jose', 'san francisco', 'graduate', 'graduated', 'masters', 'experience', 'career', 'background', 'about', 'who', 'bio'],
+    buttonLabel: 'View Background',
   },
   {
     id: 'resume',
     title: 'Resume',
-    route: 'resume.html',
-    keywords: ['resume', 'cv', 'download', 'pdf', 'experience', 'hire', 'hiring'],
+    route: 'https://drive.google.com/uc?export=download&id=1mlcJUpWWCuMGMw19UK96ByOdynHjJIrV',
+    external: true,
+    keywords: ['resume', 'cv', 'download', 'pdf', 'hire', 'hiring'],
     buttonLabel: 'Download Resume',
   },
   {
     id: 'contact',
     title: 'Contact',
-    route: 'contact.html',
-    keywords: ['contact', 'email', 'phone', 'reach', 'connect', 'linkedin', 'github', 'location', 'bay area'],
+    route: '#contact',
+    keywords: ['contact', 'email', 'phone', 'reach', 'connect', 'linkedin', 'github', 'location', 'bay area', 'hire', 'talk'],
     buttonLabel: 'Get in Touch',
   },
 ];
 
 /**
  * Scores a content route against the user's question.
- * Returns a non-negative score; higher = better match.
  */
 function scoreRoute(route, question) {
   const q = question.toLowerCase().trim();
@@ -93,7 +80,6 @@ function scoreRoute(route, question) {
 
 /**
  * Finds the best matching content route for a question.
- * Prefers more specific matches (e.g. individual project over general projects).
  * Returns the route object or null if no match above threshold.
  */
 function matchContentRoute(question, minScore = 1) {

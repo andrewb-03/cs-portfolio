@@ -162,14 +162,48 @@ button{font-family:inherit}
 /* hide only the static welcome block and the input-line's $ prompt */
 .terminal-line.chat-welcome{display:none}
 .chat-input-line > .prompt{display:none}
-/* anything script.js injects into the log renders as a visible bubble */
-.chat-messages .terminal-line{
-  align-self:flex-start;max-width:88%;display:flex;gap:8px;
+/* user question — right-aligned green bubble */
+.chat-messages .chat-message-line{
+  align-self:flex-end;max-width:88%;
+  background:rgba(62,207,142,.14);border:1px solid rgba(62,207,142,.22);
+  border-radius:14px 14px 4px 14px;padding:10px 14px;color:var(--dark-text);
+}
+.chat-message-line .prompt{display:none}
+.chat-message-line .command{color:var(--dark-text)}
+/* loading indicator — left bubble with pulsing dots */
+.chat-messages .chat-loading-line{
+  align-self:flex-start;display:flex;gap:8px;
+  background:rgba(217,228,221,.06);border:1px solid rgba(217,228,221,.07);
+  border-radius:14px 14px 14px 4px;padding:10px 14px;
+}
+.chat-loading-line .prompt{color:var(--term-green)}
+.chat-loading-dots span{color:var(--dark-dim);animation:dotPulse 1.2s infinite}
+.chat-loading-dots span:nth-child(2){animation-delay:.2s}
+.chat-loading-dots span:nth-child(3){animation-delay:.4s}
+@keyframes dotPulse{0%,80%,100%{opacity:.25}40%{opacity:1}}
+/* agent answers (markdown-rendered) — left bubble */
+.chat-output{
+  align-self:flex-start;max-width:88%;
   background:rgba(217,228,221,.06);border:1px solid rgba(217,228,221,.07);
   border-radius:14px 14px 14px 4px;padding:10px 14px;color:var(--dark-text);
 }
-.chat-messages .prompt{display:inline;color:var(--term-green)}
-.chat-messages .command{display:inline;color:var(--dark-text)}
+.chat-output p{margin:0 0 8px}
+.chat-output p:last-child,.chat-output ul:last-child,.chat-output ol:last-child{margin-bottom:0}
+.chat-output ul,.chat-output ol{margin:6px 0 8px 18px}
+.chat-output li{margin-bottom:3px}
+.chat-output code{font-family:var(--mono);font-size:12px;background:rgba(217,228,221,.1);border-radius:4px;padding:1px 5px}
+.chat-output a{color:var(--term-green)}
+.chat-output strong{color:#fff;font-weight:600}
+.chat-output.chat-error-msg{border-color:rgba(255,138,128,.3);color:#FFB4AE}
+/* contextual CTA under answers */
+.chat-cta-wrap{align-self:flex-start;margin:-2px 0 4px 2px}
+.chat-cta-btn{
+  display:inline-block;font-size:12.5px;font-weight:600;text-decoration:none;
+  color:var(--dark);background:var(--term-green);border-radius:99px;padding:7px 16px;
+  transition:background .2s ease;
+}
+.chat-cta-btn:hover{background:#5FE0A5}
+.chat-error.visible{padding-top:8px}
 .suggested-questions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-top:2px}
 .suggestion-label{font-family:var(--mono);font-size:11px;color:var(--dark-dim)}
 .suggestion-btn{
@@ -564,6 +598,7 @@ section{position:relative}
           <span class="tag">Multimodal prompting</span><span class="tag">Structured JSON</span>
           <span class="tag">RAG</span><span class="tag">React</span>
         </div>
+        <!-- TODO: add your QuantAnalyst live site URL -->
         <a class="project-link" href="https://www.quantanalyst.ai/">View live site →</a>
       </article>
 
@@ -598,6 +633,7 @@ section{position:relative}
           <span class="tag">JavaScript</span><span class="tag">MV3</span>
           <span class="tag">Anthropic API</span><span class="tag">SSE</span>
         </div>
+        <!-- TODO: replace with your Web Store listing URL -->
         <a class="project-link" href="https://github.com/andrewb-03/Gloss">View GitHub Repository→</a>
       </article>
 
@@ -615,6 +651,7 @@ section{position:relative}
           <span class="tag">HTML/CSS/JS</span><span class="tag">Design</span>
           <span class="tag">SEO</span>
         </div>
+        <!-- TODO: link a live client site, e.g. driftmap.us -->
         <a class="project-link" href="https://www.bmwrapz.com/">See live client work →</a>
       </article>
 
@@ -741,7 +778,8 @@ section{position:relative}
     <div class="contact-actions reveal reveal-d2">
       <a class="btn btn-primary" href="mailto:abrockenborough03@gmail.com">Email me</a>
       <a class="btn btn-ghost" href="https://github.com/andrewb-03" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/abrockenborough/" target="_blank" rel="noopener">LinkedIn</a>
+      <!-- TODO: add LinkedIn URL -->
+      <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </section>
@@ -887,15 +925,7 @@ section{position:relative}
     });
   });
 
-  /* ---------- 5b. Chat send button: fires the same Enter handler script.js binds ---------- */
-  var sendBtn = document.getElementById("chat-send");
-  var chatInput = document.getElementById("chat-input");
-  if (sendBtn && chatInput) {
-    sendBtn.addEventListener("click", function(){
-      chatInput.dispatchEvent(new KeyboardEvent("keydown", { key:"Enter", code:"Enter", keyCode:13, which:13, bubbles:true }));
-      chatInput.focus();
-    });
-  }
+  /* Chat send button + Enter handling live in script.js, which binds #chat-send directly. */
 
   /* ---------- 6. Hero ambient canvas: drifting dot grid ---------- */
   var canvas = document.getElementById("hero-canvas");
