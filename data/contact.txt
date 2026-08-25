@@ -2,3 +2,6 @@ Contact:
 Email: abrockenborough03@gmail.com
 Phone: (209) 923-3890
 Location: San Francisco Bay Area, California
+GitHub: github.com/andrewb-03
+Portfolio: abrockenborough.dev
+Resume: available via the Download Resume button on the portfolio

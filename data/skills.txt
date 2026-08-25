@@ -1,12 +1,22 @@
 Core Skills:
 
+AI & LLM Engineering:
+- Anthropic API
+- Prompt engineering
+- Structured JSON outputs
+- Streaming (SSE)
+- Multimodal / vision prompting
+- Context grounding
+- RAG (retrieval-augmented generation)
+- Embeddings
+- Evals
+
 Programming Languages:
 - Python
 - JavaScript
-- C
 - C++
-- Java
 - SQL
+- MIPS Assembly
 
 Frontend:
 - React
@@ -14,8 +24,7 @@ Frontend:
 - Tailwind CSS
 - Radix UI
 - Recharts
-- HTML
-- CSS
+- HTML / CSS
 
 Backend:
 - Node.js
@@ -24,8 +33,9 @@ Backend:
 - Axios
 
 Databases:
-- MySQL
+- PostgreSQL
 - MongoDB
+- MySQL
 
 Systems Programming:
 - Linux Kernel
@@ -42,7 +52,7 @@ DevOps / Infrastructure:
 Tools:
 - Git
 - GitHub
-- GitBook
+- VS Code, IntelliJ IDEA, PyCharm, CLion
 - Agile
 
 Computer Science Fundamentals:

@@ -5,13 +5,14 @@ Andrew's Free Time Interests:
 Andrew enjoys a variety of hobbies outside of software engineering.
 
 Hobbies and Interests:
-- Playing video games
+- Car culture and automotive enthusiasm (he's a BMW guy)
+- Studying financial markets and trading the stock market
+- Cycling
+- Sim racing and video games
 - Golf
 - Hanging out with friends
-- Car culture and automotive enthusiasm
 - Working on personal coding projects
-- Studying financial markets and the stock market
 
 Notes for AI assistant:
-This information should only be used if the user asks about Andrew's personal interests, hobbies, or what he does in his free time. 
+This information should only be used if the user asks about Andrew's personal interests, hobbies, or what he does in his free time.
 Do not bring this up unless the user specifically asks about personal life or hobbies.

@@ -1,66 +1,76 @@
 Projects:
 
-Sworn In USA — E-Commerce Web Application
+Gloss — Chrome Extension (Published on the Chrome Web Store)
 Description:
-A full-stack e-commerce web application built for Sworn In USA, an American lifestyle clothing brand. Designed and engineered solo as a freelance project in 2026 with a custom dark premium aesthetic, full shopping cart, SMS and email order notifications, and a complete checkout flow.
+A Manifest V3 Chrome extension that explains any highlighted text in place via a streaming LLM call. Median 1.7 seconds to full explanation, p90 2.3s, measured across live pages. Built, debugged, and published end to end, solo.
 
-Role: Full Stack Engineer (Freelance)
-Status: In Development
+Role: Creator / Sole Engineer
+Status: Live on the Chrome Web Store (July 2026 – Present)
 
 Key Features:
-- Custom homepage with cinematic lifestyle photography and animated marquee
-- Full product catalog with category filtering and size, color, and gender selectors
-- Slide-out cart drawer with quantity controls, promo code validation, and order summary
-- Multi-step checkout flow with form validation and order confirmation page
-- SMS notifications via Twilio for owner order alerts and customer confirmations
-- Email notifications via EmailJS
-- SEO optimized with metadata, sitemap, robots.txt, and JSON-LD structured data
-- Persistent cart via localStorage; fully responsive across all devices
-- Custom 404 page; Shopify Storefront API integration in progress
+- Explains any highlighted text on any webpage, in place
+- Injected UI isolated in Shadow DOM; selection highlights rendered as overlay rects from Range.getClientRects(), so host-page DOM is never mutated and framework-rendered pages never break
+- SSE deltas streamed from service worker to content script over a long-lived port, with disconnect-driven AbortController cancellation
+- Session-scoped caching keyed by selection hash
+- BYOK (bring your own key) auth — no API key ships in the package and no backend is required; fully client-side
 
 Technologies:
-Next.js 14, TypeScript, Tailwind CSS, React Context API, Twilio, EmailJS, Vercel
+JavaScript, Chrome Manifest V3, Anthropic API, SSE streaming, Shadow DOM
 
 
-Student Budgeting Platform
+QuantAnalyst — AI Chart Analysis Tool
 Description:
-A full-stack web application built with a 6-person team that helps students manage budgets, track expenses, and gain financial insights.
+An AI-powered tool that turns a raw stock chart screenshot into a structured technical read — trend, key levels, and two probability-weighted scenarios with explicit invalidation levels — in about 12 seconds. Born from Andrew's own trading experience.
+
+Role: Creator / Sole Engineer
+Status: Live (June 2026 – Present)
 
 Key Features:
-- Secure authentication
-- Real-time bank account linking via Plaid
-- Responsive UI using React and Tailwind CSS
-- Backend built with Node.js, Express, and MySQL
-- Deployed on AWS using Docker
+- Multimodal (vision) prompts with strict JSON schemas and few-shot examples, making model output deterministic enough to render directly into UI components without post-hoc parsing
+- Guardrails built into the prompt layer to enforce educational, non-advisory output — both sides of every read are weighted, and directional signals or profit claims are blocked by design
+- A retrieval-grounded AI coach that reasons only over the user's own logged trades and journal entries, surfacing behavioral patterns instead of generic market commentary
 
 Technologies:
-React, Node.js, Express, MySQL, AWS, Docker
+Multimodal / vision prompting, structured JSON outputs, RAG, React, Node.js
 
+
+AI Portfolio Assistant (this assistant)
+Description:
+The AI agent answering questions on abrockenborough.dev. Visitors ask about Andrew's background, projects, and skills through a chat interface instead of reading static pages.
+
+Role: Creator / Sole Engineer
+Status: Live (January 2025 – Present)
+
+Key Features:
+- Decoupled frontend/backend architecture: a REST API hosted on Render serves answers, separating presentation from data
+- LLM answers grounded in Andrew's resume and project documentation
+- Contextual navigation: answers include buttons that scroll the visitor to the relevant section of the portfolio
+
+Technologies:
+Python, REST API, Render, LLM grounding / RAG, vanilla JavaScript frontend
+
+
+Freelance Client Work — Automotive & Apparel
+Description:
+Production websites for small-business clients, built and shipped solo since 2024. Clients include Drift Maps (driftmap.us), 38Carmodz, BM Wrapz, and Sworn In USA (an American lifestyle clothing brand with a full e-commerce build: product catalog, cart drawer, multi-step checkout, Twilio SMS and EmailJS order notifications, SEO structured data — Next.js 14, TypeScript, Tailwind CSS, deployed on Vercel).
+
+Role: Freelance Full-Stack Developer
+Status: Ongoing (2024 – Present)
+
+Key Points:
+- Owns scoping, build, and delivery end to end
+- Developed an AI-assisted workflow using Cursor and Claude to cut build time
+- Hand-rolled vanilla HTML/CSS/JS where frameworks aren't needed; Next.js/React where they are
+- Manages client relationships directly, translating non-technical requirements into scoped deliverables
+
+
+Earlier / Academic Projects:
 
 Optimal Routing for Self-Driving Cars
-Description:
-An algorithmic routing engine designed to optimize self-driving vehicle paths, ride pricing, and fleet profitability under real-world constraints.
-
-Key Achievements:
-- Progressed from brute-force solutions to graph-based algorithms
-- Implemented dynamic programming optimization
-- Designed algorithms to handle congestion and limited fleet size
-- Delivered complexity analysis and Python implementation
-
-Technologies:
-Python, Algorithms, Graph Theory, Dynamic Programming
-
+An algorithmic routing engine optimizing self-driving vehicle paths, ride pricing, and fleet profitability under real-world constraints. Progressed from brute-force to graph-based algorithms with dynamic programming optimization and full complexity analysis. (Python, Graph Theory, Dynamic Programming)
 
 Custom Linux Device Driver
-Description:
-A loadable Linux kernel module written in C implementing core device driver functionality.
+A loadable Linux kernel module written in C implementing open, release, read, and write file operations, ioctl commands for runtime configuration, and encryption/decryption, with a user-space application for interaction. (C, Linux Kernel, Systems Programming)
 
-Key Features:
-- Implemented open, release, read, and write file operations
-- Added ioctl commands for runtime configuration
-- Built encryption/decryption functionality
-- Developed user-space application to interact with the module
-- Verified functionality through kernel logs and testing
-
-Technologies:
-C, Linux Kernel, Device Drivers, Systems Programming
+Student Budgeting Platform
+A full-stack web application built with a 6-person team: secure authentication, real-time bank linking via Plaid, React/Tailwind UI, Node.js/Express/MySQL backend, deployed on AWS with Docker.

@@ -1,16 +1,22 @@
 FAQ Data for AI Agent:
 
 Q: Who is Andrew Brockenborough?
-A: Andrew J. Brockenborough is a Computer Science graduate from San Francisco State University with experience in full-stack development, systems programming, and algorithm design.
+A: Andrew J. Brockenborough is an AI software engineer with a B.S. in Computer Science from San Francisco State University, currently pursuing an M.S. in Artificial Intelligence at San José State University. He builds and ships AI-native products end to end, including a published Chrome extension and an AI chart-analysis tool.
 
 Q: What technologies does Andrew use?
-A: Andrew works with Python, JavaScript, C, C++, Java, SQL, React, Node.js, Express, MySQL, Docker, AWS, and Linux systems programming tools.
+A: On the AI side: Anthropic API, prompt engineering, structured JSON outputs, SSE streaming, multimodal/vision prompting, RAG, and embeddings. Languages: Python, JavaScript, C++, SQL, and MIPS Assembly. Web: React, Tailwind, Node.js, Express, PostgreSQL, MongoDB, MySQL. Infrastructure: AWS EC2, Docker, Ubuntu Server, and Linux systems programming.
 
 Q: What are Andrew's strongest areas?
-A: Full-stack development, systems programming, algorithms, backend architecture, and building scalable applications.
+A: Shipping AI-native products end to end — LLM integration, prompt and context engineering, and full-stack delivery. He also has genuine systems depth (Linux device drivers, OS internals) that's unusual for a web-focused engineer.
 
 Q: What projects has Andrew built?
-A: A full-stack e-commerce web application for Sworn In USA (a clothing brand), a student budgeting platform, an algorithmic routing system for self-driving cars, and a custom Linux device driver.
+A: Gloss, a Manifest V3 Chrome extension published on the Chrome Web Store that streams AI explanations for highlighted text (median 1.7s); QuantAnalyst, an AI chart-analysis tool that turns chart screenshots into structured technical reads; this AI portfolio assistant itself; and freelance production sites for clients in the automotive and apparel sectors, including a full e-commerce build for Sworn In USA. Earlier academic work includes an algorithmic routing engine for self-driving cars and a custom Linux device driver.
 
 Q: What job is Andrew looking for?
-A: Andrew is seeking full-time software engineering roles where he can build scalable systems and solve complex engineering problems.
+A: Full-time AI software engineering or full-stack roles where he can ship AI-native products with real ownership, ideally on a strong team he can learn from. He is based in the SF Bay Area and open to in-person work.
+
+Q: Has Andrew actually shipped anything?
+A: Yes — Gloss is live on the Chrome Web Store, QuantAnalyst is live, this portfolio assistant is a deployed product with a hosted API, and his freelance client sites are in production. Everything he's shipped, he's shipped solo, end to end.
+
+Q: How can I contact Andrew?
+A: Email abrockenborough03@gmail.com, or find him on GitHub at andrewb-03. His resume is downloadable from the portfolio.
