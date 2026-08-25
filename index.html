@@ -1,67 +1,987 @@
 <!DOCTYPE html>
-<html lang="en" class="page-home">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <!-- Production API URL; localhost always uses http://localhost:8000 for dev -->
-    <meta name="portfolio-api-url" content="https://andrew-portfolio-api.onrender.com">
-    <title>Andrew Brockenborough - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body class="page-home">
-    <header class="site-header">
-        <a href="index.html" class="site-logo">Andrew Brockenborough</a>
-    </header>
-    <!-- Hero Section (AI chat only on homepage) -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="chat-panel terminal-window-style">
-                    <div class="chat-header">
-                        <div class="terminal-window-controls">
-                            <span class="terminal-btn terminal-btn-close"></span>
-                            <span class="terminal-btn terminal-btn-minimize"></span>
-                            <span class="terminal-btn terminal-btn-maximize"></span>
-                        </div>
-                        <span class="chat-header-label">andrew@portfolio — ask</span>
-                    </div>
-                    <div class="chat-body">
-                        <div class="chat-messages" id="chat-messages">
-                            <div class="terminal-line chat-welcome">
-                                <span class="prompt">$</span>
-                                <span class="command">ask andrew</span>
-                            </div>
-                            <div class="terminal-output chat-output">
-                                Ask me anything about Andrew — background, skills, projects, education, or contact info.
-                            </div>
-                            <div class="suggested-questions">
-                                <span class="suggestion-label">Try:</span>
-                                <button type="button" class="suggestion-btn" data-question="Where did Andrew go to school?">education</button>
-                                <button type="button" class="suggestion-btn" data-question="Tell me about Andrew's projects">projects</button>
-                                <button type="button" class="suggestion-btn" data-question="What are Andrew's skills?">skills</button>
-                                <button type="button" class="suggestion-btn" data-question="How can I contact Andrew?">contact</button>
-                            </div>
-                        </div>
-                        <div class="chat-input-wrap">
-                            <div class="terminal-line chat-input-line">
-                                <span class="prompt">$</span>
-                                <input type="text" id="chat-input" class="chat-input" placeholder="Ask a question..." autocomplete="off" spellcheck="false">
-                                <span class="cursor chat-cursor" id="chat-cursor">_</span>
-                            </div>
-                            <div class="chat-error" id="chat-error"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- Production API URL; localhost always uses http://localhost:8000 for dev -->
+<meta name="portfolio-api-url" content="https://andrew-portfolio-api.onrender.com">
+<title>Andrew Brockenborough — AI Software Engineer</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F7F3;
+  --card:#FFFFFF;
+  --ink:#141B17;
+  --muted:#5B685F;
+  --line:#DFE4DD;
+  --green:#0E7B4C;
+  --green-soft:#E4F0E9;
+  --dark:#0B100D;
+  --dark-2:#101613;
+  --dark-line:#1E2A23;
+  --dark-text:#D9E4DD;
+  --dark-dim:#7C8B82;
+  --term-green:#3ECF8E;
+  --display:"Bricolage Grotesque",sans-serif;
+  --body:"Inter",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);background:var(--paper);color:var(--ink);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--term-green);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--green);display:block;margin-bottom:14px;
+}
+.on-dark .eyebrow{color:var(--term-green)}
 
-    <!-- API config must load before script.js for mobile/same-network support -->
-    <script src="js/api-config.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="js/content-routes.js"></script>
-    <script src="script.js"></script>
+/* ---------- Scroll reveals ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.08s}
+.reveal-d2{transition-delay:.16s}
+.reveal-d3{transition-delay:.24s}
+
+/* ---------- Nav: tone-adaptive (Ohm-style) ---------- */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .35s ease,border-color .35s ease;
+  background:rgba(246,247,243,.82);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.site-logo{font-family:var(--mono);font-size:14px;font-weight:500;text-decoration:none;color:var(--ink);transition:color .35s ease}
+.site-logo .tld{color:var(--green);transition:color .35s ease}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-link{font-size:14px;color:var(--muted);text-decoration:none;font-weight:500;transition:color .25s ease}
+.nav-link:hover{color:var(--ink)}
+.nav-cta{
+  font-size:14px;font-weight:600;text-decoration:none;
+  background:var(--ink);color:var(--paper);padding:9px 18px;border-radius:8px;
+  transition:background .25s ease,color .25s ease;
+}
+.nav-cta:hover{background:var(--green)}
+/* dark tone */
+.site-header.tone-dark{background:rgba(11,16,13,.72);border-color:var(--dark-line)}
+.site-header.tone-dark .site-logo{color:var(--dark-text)}
+.site-header.tone-dark .site-logo .tld{color:var(--term-green)}
+.site-header.tone-dark .nav-link{color:var(--dark-dim)}
+.site-header.tone-dark .nav-link:hover{color:var(--dark-text)}
+.site-header.tone-dark .nav-cta{background:var(--term-green);color:var(--dark)}
+.site-header.tone-dark .nav-cta:hover{background:#5FE0A5}
+@media (max-width:640px){.nav-links li.hide-mobile{display:none}}
+
+/* ---------- Hero (dark, ambient canvas) ---------- */
+.hero{
+  position:relative;background:var(--dark);color:var(--dark-text);
+  padding:150px 0 100px;overflow:hidden;
+}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;
+}
+.hero h1{
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(38px,5vw,60px);line-height:1.04;letter-spacing:-.02em;margin-bottom:20px;
+}
+.hero h1 em{font-style:normal;color:var(--term-green)}
+.hero .lede{font-size:17px;color:var(--dark-dim);max-width:46ch;margin-bottom:28px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;
+  text-decoration:none;padding:12px 22px;border-radius:9px;border:1px solid transparent;
+  transition:background .2s ease,border-color .2s ease,color .2s ease;
+}
+.btn-primary{background:var(--term-green);color:var(--dark)}
+.btn-primary:hover{background:#5FE0A5}
+.btn-ghost{border-color:var(--dark-line);color:var(--dark-text);background:transparent}
+.btn-ghost:hover{border-color:var(--term-green)}
+.on-light .btn-primary{background:var(--ink);color:var(--paper)}
+.on-light .btn-primary:hover{background:var(--green)}
+.on-light .btn-ghost{border-color:var(--line);color:var(--ink);background:var(--card)}
+.on-light .btn-ghost:hover{border-color:var(--ink)}
+.status-line{font-family:var(--mono);font-size:13px;color:var(--dark-dim);display:flex;align-items:center;gap:10px}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--term-green);box-shadow:0 0 0 4px rgba(62,207,142,.18);flex-shrink:0}
+
+/* ---------- AI assistant card ---------- */
+.chat-panel{
+  background:linear-gradient(180deg, rgba(28,38,32,.92), rgba(16,22,19,.96));
+  border-radius:18px;border:1px solid rgba(217,228,221,.1);
+  box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 30px 80px -30px rgba(0,0,0,.75);
+  overflow:hidden;
+}
+.chat-header{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid rgba(217,228,221,.08)}
+.terminal-btn{width:11px;height:11px;border-radius:50%;display:inline-block}
+.terminal-btn-close{background:#FF5F57}
+.terminal-btn-minimize{background:#FEBC2E}
+.terminal-btn-maximize{background:#28C840}
+.chat-avatar{
+  width:34px;height:34px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--term-green),#0E7B4C);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:600;font-size:15px;color:var(--dark);
+}
+.chat-id{display:flex;flex-direction:column;gap:1px;min-width:0}
+.chat-title{font-family:var(--display);font-weight:600;font-size:15px;color:var(--dark-text);letter-spacing:-.01em}
+.chat-status{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--dark-dim)}
+.chat-status i{width:6px;height:6px;border-radius:50%;background:var(--term-green);box-shadow:0 0 0 3px rgba(62,207,142,.16);font-style:normal}
+.chat-header-label{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dark-dim);border:1px solid rgba(217,228,221,.12);border-radius:99px;padding:4px 10px}
+.chat-body{display:flex;flex-direction:column;height:380px}
+.chat-messages{
+  flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:10px;
+  font-size:13.5px;line-height:1.6;
+  scrollbar-width:thin;scrollbar-color:rgba(217,228,221,.15) transparent;
+}
+/* assistant + user bubbles (also covers legacy classes script.js may append) */
+.chat-msg-ai,.chat-output,.terminal-output{
+  align-self:flex-start;max-width:88%;
+  background:rgba(217,228,221,.06);border:1px solid rgba(217,228,221,.07);
+  border-radius:14px 14px 14px 4px;padding:10px 14px;color:var(--dark-text);
+}
+.chat-msg-user{
+  align-self:flex-end;max-width:88%;
+  background:rgba(62,207,142,.14);border:1px solid rgba(62,207,142,.22);
+  border-radius:14px 14px 4px 14px;padding:10px 14px;color:var(--dark-text);
+}
+.terminal-line.chat-welcome,.prompt,.command{display:none} /* legacy terminal bits, kept for script.js safety */
+.suggested-questions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-top:2px}
+.suggestion-label{font-family:var(--mono);font-size:11px;color:var(--dark-dim)}
+.suggestion-btn{
+  font-family:var(--body);font-weight:500;font-size:12.5px;color:var(--dark-text);
+  background:rgba(217,228,221,.05);border:1px solid rgba(217,228,221,.12);
+  border-radius:99px;padding:6px 14px;cursor:pointer;
+  transition:border-color .2s ease,background .2s ease,color .2s ease;
+}
+.suggestion-btn:hover{border-color:var(--term-green);color:var(--term-green);background:rgba(62,207,142,.08)}
+.chat-input-wrap{padding:14px 16px 16px;border-top:1px solid rgba(217,228,221,.08)}
+.chat-input-line{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(11,16,13,.6);border:1px solid rgba(217,228,221,.12);
+  border-radius:99px;padding:6px 6px 6px 18px;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.chat-input-line:focus-within{border-color:var(--term-green);box-shadow:0 0 0 3px rgba(62,207,142,.12)}
+.chat-input{
+  flex:1;background:transparent;border:none;outline:none;min-width:0;
+  font-family:var(--body);font-size:13.5px;color:var(--dark-text);caret-color:var(--term-green);
+}
+.chat-input::placeholder{color:var(--dark-dim)}
+.chat-send{
+  width:34px;height:34px;border-radius:50%;border:none;cursor:pointer;flex-shrink:0;
+  background:var(--term-green);color:var(--dark);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s ease,transform .15s ease;
+}
+.chat-send:hover{background:#5FE0A5}
+.chat-send:active{transform:scale(.94)}
+.chat-send svg{width:15px;height:15px}
+.cursor,.chat-cursor{display:none} /* legacy cursor element kept in DOM for script.js safety */
+.chat-error{font-size:12px;color:#FF8A80;padding-top:8px;min-height:0}
+@keyframes blink{50%{opacity:0}}
+@media (max-width:880px){
+  .hero{padding:120px 0 72px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .chat-body{height:340px}
+}
+
+/* ---------- Stack ticker ---------- */
+.ticker-band{background:var(--dark);border-top:1px solid var(--dark-line);padding:14px 0;overflow:hidden}
+.ticker{display:flex;gap:48px;white-space:nowrap;font-family:var(--mono);font-size:12.5px;color:var(--dark-dim);width:max-content;animation:ticker 36s linear infinite}
+.ticker span b{color:var(--term-green);font-weight:500}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* ---------- Sections ---------- */
+section{position:relative}
+.section-pad{padding:96px 0}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:44px;gap:16px;flex-wrap:wrap}
+.section-head h2{font-family:var(--display);font-weight:600;font-size:clamp(28px,3.4vw,38px);letter-spacing:-.015em}
+.section-head p{color:var(--muted);font-size:15px;max-width:44ch}
+
+/* ---------- Gloss scrollytelling (signature) ---------- */
+.scrolly{background:var(--card)}
+.scrolly-track{position:relative;height:320vh}
+.scrolly-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
+.scrolly-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center;width:100%}
+.scrolly-steps{display:flex;flex-direction:column;gap:8px}
+.scrolly-intro{margin-bottom:22px}
+.scrolly-intro h2{font-family:var(--display);font-weight:600;font-size:clamp(26px,3vw,36px);letter-spacing:-.015em;margin-bottom:8px}
+.scrolly-intro p{color:var(--muted);font-size:15px;max-width:42ch}
+.step{
+  border-left:2px solid var(--line);padding:14px 0 14px 20px;
+  opacity:.35;transition:opacity .35s ease,border-color .35s ease;
+}
+.step.active{opacity:1;border-color:var(--term-green)}
+.step h3{font-family:var(--display);font-weight:600;font-size:18px;margin-bottom:4px}
+.step p{color:var(--muted);font-size:14px;max-width:40ch}
+.step .step-tag{font-family:var(--mono);font-size:11px;color:var(--green);letter-spacing:.06em;text-transform:uppercase}
+.scrolly-progress{margin-top:18px;height:2px;background:var(--line);border-radius:2px;overflow:hidden;max-width:220px}
+.scrolly-progress i{display:block;height:100%;width:0;background:var(--term-green)}
+
+/* Browser mockup — light article page (what Gloss actually runs on) */
+.mock{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  box-shadow:0 30px 80px -30px rgba(11,16,13,.28);overflow:hidden;
+}
+.mock-bar{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line);background:#F1F3EF}
+.mock-url{
+  margin-left:6px;flex:1;background:var(--card);border:1px solid var(--line);border-radius:6px;
+  font-family:var(--mono);font-size:11.5px;color:var(--muted);padding:4px 10px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.mock-page{position:relative;padding:30px 32px 34px;min-height:340px;font-family:var(--body);background:var(--card)}
+.article-kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.article-title{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.01em;line-height:1.25;color:var(--ink);margin-bottom:6px}
+.article-byline{font-size:12px;color:var(--muted);margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.mock-text{color:#3E4A43;font-size:13.5px;line-height:1.85;max-width:56ch;margin-bottom:12px}
+.mock-skeleton{height:9px;border-radius:4px;background:var(--line);opacity:.55;margin-bottom:10px}
+.mock-skeleton.w80{width:80%}
+.mock-skeleton.w60{width:60%}
+.mock-fade{position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(to bottom,rgba(255,255,255,0),var(--card));pointer-events:none}
+.hl{
+  border-radius:3px;padding:1px 3px;color:var(--ink);
+  background:transparent;transition:background .4s ease,box-shadow .4s ease;
+}
+.mock.s1 .hl,.mock.s2 .hl,.mock.s3 .hl{background:rgba(62,207,142,.28);box-shadow:0 0 0 1px rgba(14,123,76,.35)}
+.gloss-pop{
+  position:absolute;left:28px;right:28px;bottom:24px;z-index:1;
+  background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;
+  box-shadow:0 16px 44px -16px rgba(11,16,13,.3);
+  opacity:0;transform:translateY(14px);transition:opacity .4s ease,transform .4s ease;
+}
+.mock.s2 .gloss-pop,.mock.s3 .gloss-pop{opacity:1;transform:none}
+.gloss-pop .pop-head{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:8px}
+.pop-dot{width:7px;height:7px;border-radius:50%;background:var(--term-green)}
+.gloss-stream{font-size:12.5px;color:var(--ink);line-height:1.65;min-height:3.2em}
+.gloss-stream::after{content:"▍";color:var(--green);animation:blink 1s steps(1) infinite}
+.mock.s3 .gloss-stream::after{content:""}
+.gloss-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;opacity:0;transition:opacity .4s ease}
+.mock.s3 .gloss-chips{opacity:1}
+.gchip{font-family:var(--mono);font-size:10.5px;color:var(--green);background:var(--green-soft);border:1px solid rgba(14,123,76,.2);border-radius:99px;padding:3px 10px}
+@media (max-width:900px){
+  .scrolly-track{height:auto}
+  .scrolly-sticky{position:static;height:auto;padding:80px 0}
+  .scrolly-grid{grid-template-columns:1fr;gap:40px}
+  .step{opacity:1;border-color:var(--term-green)}
+  .scrolly-progress{display:none}
+  .mock{order:-1}
+  .mock.s0 .hl{background:rgba(62,207,142,.22);box-shadow:0 0 0 1px rgba(62,207,142,.35)}
+  .mock.s0 .gloss-pop{opacity:1;transform:none}
+  .mock.s0 .gloss-chips{opacity:1}
+  .mock.s0 .gloss-stream::after{content:""}
+}
+
+/* ---------- Stats ---------- */
+.stats-band{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:44px 0}
+.stat{text-align:left}
+.stat .num{font-family:var(--display);font-weight:600;font-size:40px;letter-spacing:-.02em;color:var(--ink)}
+.stat .num small{font-size:20px;color:var(--green)}
+.stat .cap{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
+@media (max-width:700px){.stats-grid{grid-template-columns:1fr;gap:28px}}
+
+/* ---------- Projects ---------- */
+.projects{background:var(--paper)}
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.project-card{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;
+  display:flex;flex-direction:column;gap:12px;
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+.project-card:hover{border-color:var(--green);box-shadow:0 16px 40px -24px rgba(14,123,76,.45);transform:translateY(-3px)}
+.project-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.project-card h3{font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-.01em}
+.project-badge{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--green);background:var(--green-soft);border-radius:99px;padding:4px 10px;white-space:nowrap}
+.project-card p{color:var(--muted);font-size:14.5px;flex:1}
+.tag-row{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-family:var(--mono);font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:3px 9px}
+.project-link{font-size:14px;font-weight:600;color:var(--green);text-decoration:none;display:inline-flex;align-items:center;gap:6px;margin-top:4px}
+.project-link:hover{text-decoration:underline}
+@media (max-width:760px){.project-grid{grid-template-columns:1fr}}
+
+/* ---------- Skills tabs (Ohm-style layer tabs) ---------- */
+.skills{background:var(--paper)}
+.tab-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.tab-btn{
+  font-family:var(--mono);font-size:13px;color:var(--muted);background:var(--card);
+  border:1px solid var(--line);border-radius:99px;padding:9px 18px;cursor:pointer;
+  transition:color .2s ease,border-color .2s ease,background .2s ease;
+}
+.tab-btn:hover{border-color:var(--ink);color:var(--ink)}
+.tab-btn[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tab-panel{display:none;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:32px}
+.tab-panel.show{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;animation:panelIn .35s ease}
+@keyframes panelIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tab-panel h3{font-family:var(--display);font-weight:600;font-size:22px;letter-spacing:-.01em;margin-bottom:8px}
+.tab-panel .panel-note{color:var(--muted);font-size:14.5px;max-width:36ch}
+.chip-cloud{display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start}
+.chip{font-family:var(--mono);font-size:13px;color:var(--ink);border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:8px 14px}
+.chip.hot{border-color:var(--green);color:var(--green);background:var(--green-soft)}
+@media (max-width:760px){.tab-panel.show{grid-template-columns:1fr}}
+
+/* ---------- Experience / Education ---------- */
+.history{background:var(--card);border-top:1px solid var(--line)}
+.edu-row{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:26px 0;border-top:1px solid var(--line)}
+.edu-row:first-of-type{border-top:none}
+.edu-row h3{font-family:var(--display);font-weight:600;font-size:19px}
+.edu-row .school{color:var(--muted);font-size:14.5px}
+.edu-row .dates{font-family:var(--mono);font-size:13px;color:var(--muted);white-space:nowrap;align-self:start}
+.edu-detail{color:var(--muted);font-size:14.5px;max-width:64ch;margin-top:10px}
+.history .sub-head{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin:36px 0 6px}
+.history .sub-head:first-of-type{margin-top:0}
+
+/* ---------- Contact (dark) ---------- */
+.contact{background:var(--dark);color:var(--dark-text);padding:110px 0 70px;text-align:center}
+.contact h2{font-family:var(--display);font-weight:600;font-size:clamp(32px,4.4vw,50px);letter-spacing:-.02em;margin-bottom:14px}
+.contact p{color:var(--dark-dim);max-width:52ch;margin:0 auto 30px}
+.contact-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.site-footer{background:var(--dark);border-top:1px solid var(--dark-line);padding:24px 0}
+.footer-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;color:var(--dark-dim)}
+.footer-row a{text-decoration:none}
+.footer-row a:hover{color:var(--term-green)}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .ticker{animation:none}
+  .cursor,.gloss-stream::after{animation:none}
+  *,*::before,*::after{transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <nav class="nav wrap" aria-label="Main">
+    <a href="#home" class="site-logo">abrockenborough<span class="tld">.dev</span></a>
+    <ul class="nav-links">
+      <li class="hide-mobile"><a class="nav-link" href="#gloss">Gloss</a></li>
+      <li class="hide-mobile"><a class="nav-link" href="#projects">Projects</a></li>
+      <li class="hide-mobile"><a class="nav-link" href="#skills">Skills</a></li>
+      <li class="hide-mobile"><a class="nav-link" href="#history">Background</a></li>
+      <li><a class="nav-cta" href="#contact">Get in touch</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================= HERO (dark) ================= -->
+<section id="home" class="hero on-dark" data-nav-tone="dark">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div class="hero-content">
+      <span class="eyebrow">Andrew Brockenborough · San Francisco Bay Area</span>
+      <h1>Recent CS grad who builds AI products <em>end</em> to <em>end</em>.</h1>
+      <p class="lede">
+        I build AI-native products, LLM-powered web apps, and production sites for real clients.
+        Currently pursuing an M.S. in Artificial Intelligence at San José State.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">View projects</a>
+        <!-- TODO: replace # with your resume PDF path -->
+        <a class="btn btn-ghost" href="#" download>Download resume</a>
+      </div>
+      <div class="status-line">
+        <span class="status-dot" aria-hidden="true"></span>
+        open to AI / full-stack engineering roles
+      </div>
+    </div>
+
+    <!-- Live AI assistant. All original IDs/classes preserved for script.js -->
+    <div class="chat-panel" aria-label="Ask Andrew's AI assistant">
+      <div class="chat-header">
+        <div class="chat-avatar" aria-hidden="true">A</div>
+        <div class="chat-id">
+          <span class="chat-title">Ask Andrew</span>
+          <span class="chat-status"><i aria-hidden="true"></i> AI · trained on my background</span>
+        </div>
+        <span class="chat-header-label">Live</span>
+      </div>
+      <div class="chat-body">
+        <div class="chat-messages" id="chat-messages">
+          <!-- legacy terminal welcome kept (hidden) so script.js selectors never break -->
+          <div class="terminal-line chat-welcome">
+            <span class="prompt">$</span>
+            <span class="command">ask andrew</span>
+          </div>
+          <div class="terminal-output chat-output">
+            Hey — I'm Andrew's AI assistant. Ask me anything about his background, projects, skills, or how to reach him.
+          </div>
+          <div class="suggested-questions">
+            <span class="suggestion-label">Try:</span>
+            <button type="button" class="suggestion-btn" data-question="Where did Andrew go to school?">Education</button>
+            <button type="button" class="suggestion-btn" data-question="Tell me about Andrew's projects">Projects</button>
+            <button type="button" class="suggestion-btn" data-question="What are Andrew's skills?">Skills</button>
+            <button type="button" class="suggestion-btn" data-question="How can I contact Andrew?">Contact</button>
+          </div>
+        </div>
+        <div class="chat-input-wrap">
+          <div class="terminal-line chat-input-line">
+            <span class="prompt">$</span>
+            <input type="text" id="chat-input" class="chat-input" placeholder="Ask me anything about Andrew..." autocomplete="off" spellcheck="false" aria-label="Ask a question about Andrew">
+            <span class="cursor chat-cursor" id="chat-cursor">_</span>
+            <button type="button" class="chat-send" id="chat-send" aria-label="Send question">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+            </button>
+          </div>
+          <div class="chat-error" id="chat-error"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stack ticker -->
+<div class="ticker-band" data-nav-tone="dark" aria-hidden="true">
+  <div class="ticker" id="ticker">
+    <span><b>python</b></span><span><b>javascript</b></span><span>anthropic api</span><span>rag</span><span>structured json</span><span>sse streaming</span><span>react</span><span>node.js</span><span>postgresql</span><span>docker</span><span>aws ec2</span><span>chrome mv3</span><span>vision prompting</span><span>linux</span>
+  </div>
+</div>
+
+<!-- ================= GLOSS SCROLLYTELLING (signature) ================= -->
+<section id="gloss" class="scrolly on-light" data-nav-tone="light">
+  <div class="scrolly-track" id="scrolly-track">
+    <div class="scrolly-sticky">
+      <div class="wrap scrolly-grid">
+        <div class="scrolly-steps">
+          <div class="scrolly-intro">
+            <span class="eyebrow">Recent Project</span>
+            <h2><b>Gloss</b></h2>
+            <p>A Manifest V3 extension that explains any highlighted text in place. Keep scrolling to walk through how it works.</p>
+          </div>
+          <div class="step" data-step="0">
+            <span class="step-tag">01 · Select</span>
+            <h3>Highlight anything, anywhere</h3>
+            <p>Selection highlights render as overlay rects from Range.getClientRects() — zero host-DOM mutation, so framework-rendered pages never break.</p>
+          </div>
+          <div class="step" data-step="1">
+            <span class="step-tag">02 · Stream</span>
+            <h3>Explanation streams in place</h3>
+            <p>SSE deltas flow from service worker to content script over a long-lived port, with disconnect-driven AbortController cancellation. Median 1.7s to full explanation.</p>
+          </div>
+          <div class="step" data-step="2">
+            <span class="step-tag">03 · Ship</span>
+            <h3>Fully client-side, published</h3>
+            <p>Shadow DOM isolation, session-scoped caching keyed by selection hash, and BYOK auth — no key in the package, no backend required.</p>
+          </div>
+          <div class="scrolly-progress"><i id="scrolly-bar"></i></div>
+        </div>
+        <div class="mock s0" id="gloss-mock" aria-hidden="true">
+          <div class="mock-bar">
+            <span class="terminal-btn terminal-btn-close"></span>
+            <span class="terminal-btn terminal-btn-minimize"></span>
+            <span class="terminal-btn terminal-btn-maximize"></span>
+            <span class="mock-url">theapexreview.com/tech/twin-scroll-turbos-explained</span>
+          </div>
+          <div class="mock-page">
+            <div class="article-kicker">Engineering · 6 min read</div>
+            <div class="article-title">Why Twin-Scroll Turbos Took Over Performance Engines</div>
+            <div class="article-byline">By Sam Ortega · March 12, 2026</div>
+            <p class="mock-text">
+              Forced induction has become the default path to power density, but
+              turbo lag remained the tradeoff nobody wanted. The fix that stuck:
+              a <span class="hl">twin-scroll turbocharger</span>, which separates
+              exhaust pulses into paired runners so they never interfere with
+              each other on the way to the turbine.
+            </p>
+            <div class="mock-skeleton"></div>
+            <div class="mock-skeleton w80"></div>
+            <div class="mock-skeleton"></div>
+            <div class="mock-skeleton w60"></div>
+            <div class="mock-fade"></div>
+            <div class="gloss-pop">
+              <div class="pop-head"><span class="pop-dot"></span> gloss · explaining selection</div>
+              <div class="gloss-stream" id="gloss-stream"></div>
+              <div class="gloss-chips">
+                <span class="gchip">shadow dom</span>
+                <span class="gchip">byok · client-side</span>
+                <span class="gchip">median 1.7s</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-band on-light" data-nav-tone="light">
+  <div class="wrap stats-grid">
+    <div class="stat reveal"><div class="num"><span data-count="1.7" data-decimals="1">0</span><small>s</small></div><div class="cap">median to full explanation (Gloss)</div></div>
+    <div class="stat reveal reveal-d1"><div class="num"><span data-count="12" data-decimals="0">0</span><small>s</small></div><div class="cap">chart screenshot → structured read (QuantAnalyst)</div></div>
+    <div class="stat reveal reveal-d2"><div class="num"><span data-count="3" data-decimals="0">0</span><small>+</small></div><div class="cap">client sites shipped solo, end to end</div></div>
+  </div>
+</div>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="projects on-light section-pad" data-nav-tone="light">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Selected work</span>
+        <h2>Projects</h2>
+      </div>
+    </div>
+    <div class="project-grid">
+
+      <article class="project-card reveal">
+        <div class="project-top">
+          <h3>QuantAnalyst</h3>
+          <span class="project-badge">Live</span>
+        </div>
+        <p>
+          AI chart-analysis tool: a raw chart screenshot becomes a structured technical
+          read — trend, key levels, and two probability-weighted scenarios — in ~12s.
+          Vision prompts with strict JSON schemas render straight into UI components,
+          plus a retrieval-grounded coach that reasons only over the user's logged trades.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Multimodal prompting</span><span class="tag">Structured JSON</span>
+          <span class="tag">RAG</span><span class="tag">React</span>
+        </div>
+        <!-- TODO: add your QuantAnalyst live site URL -->
+        <a class="project-link" href="#">View live site →</a>
+      </article>
+
+      <article class="project-card reveal reveal-d1">
+        <div class="project-top">
+          <h3>Portfolio “ask” agent</h3>
+          <span class="project-badge">Live on this page</span>
+        </div>
+        <p>
+          The terminal above is a real product: a hosted API that answers recruiter
+          questions about my background using an LLM grounded in my resume and
+          project docs. Try it — it's the fastest way to screen me.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">LLM + RAG</span>
+          <span class="tag">Render</span><span class="tag">Vanilla JS</span>
+        </div>
+        <a class="project-link" href="#home">Ask it something →</a>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-top">
+          <h3>Gloss</h3>
+          <span class="project-badge">Chrome Web Store</span>
+        </div>
+        <p>
+          The extension from the walkthrough above — built, debugged, and published
+          end to end. Streaming SSE architecture, Shadow DOM isolation, and BYOK auth
+          keeping it fully client-side.
+        </p>
+        <div class="tag-row">
+          <span class="tag">JavaScript</span><span class="tag">MV3</span>
+          <span class="tag">Anthropic API</span><span class="tag">SSE</span>
+        </div>
+        <!-- TODO: replace with your Web Store listing URL -->
+        <a class="project-link" href="#">View on Chrome Web Store →</a>
+      </article>
+
+      <article class="project-card reveal reveal-d1">
+        <div class="project-top">
+          <h3>Client sites</h3>
+          <span class="project-badge">Freelance</span>
+        </div>
+        <p>
+          Production sites for small-business clients in the automotive and apparel
+          sectors — Drift Maps, 38Carmodz, BM Wrapz — hand-rolled HTML/CSS/JS with no
+          framework overhead, owning scoping, build, and delivery end to end.
+        </p>
+        <div class="tag-row">
+          <span class="tag">HTML/CSS/JS</span><span class="tag">Design</span>
+          <span class="tag">SEO</span>
+        </div>
+        <!-- TODO: link a live client site, e.g. driftmap.us -->
+        <a class="project-link" href="#">See live client work →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS (tabbed, Ohm-style) ================= -->
+<section id="skills" class="skills on-light section-pad" data-nav-tone="light">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Toolbox</span>
+        <h2>Skills</h2>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="tab-row" role="tablist" aria-label="Skill areas">
+        <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-ai" id="tab-ai">AI &amp; LLM</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-lang" id="tab-lang">Languages</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-web" id="tab-web">Frontend &amp; Backend</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-sys" id="tab-sys">Cloud &amp; Systems</button>
+      </div>
+
+      <div class="tab-panel show" id="panel-ai" role="tabpanel" aria-labelledby="tab-ai">
+        <div>
+          <h3>AI &amp; LLM</h3>
+          <p class="panel-note">The layer I build products around — every project on this page ships an LLM in production, not a demo.</p>
+        </div>
+        <div class="chip-cloud">
+          <span class="chip hot">Anthropic API</span><span class="chip hot">Prompt engineering</span>
+          <span class="chip">Structured JSON outputs</span><span class="chip">Streaming (SSE)</span>
+          <span class="chip">Multimodal / vision prompting</span><span class="chip">Context grounding</span>
+          <span class="chip">RAG</span><span class="chip">Embeddings</span><span class="chip">Evals</span>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-lang" role="tabpanel" aria-labelledby="tab-lang">
+        <div>
+          <h3>Languages</h3>
+          <p class="panel-note">From product scripting down to assembly — comfortable at every level of abstraction.</p>
+        </div>
+        <div class="chip-cloud">
+          <span class="chip hot">Python</span><span class="chip hot">JavaScript</span>
+          <span class="chip">C++</span><span class="chip">SQL</span><span class="chip">MIPS Assembly</span>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-web" role="tabpanel" aria-labelledby="tab-web">
+        <div>
+          <h3>Frontend &amp; Backend</h3>
+          <p class="panel-note">Full-stack delivery: React UIs when the product calls for it, hand-rolled vanilla when it doesn't.</p>
+        </div>
+        <div class="chip-cloud">
+          <span class="chip hot">React</span><span class="chip">React Router</span>
+          <span class="chip">Tailwind CSS</span><span class="chip">Radix UI</span><span class="chip">Recharts</span>
+          <span class="chip hot">Node.js</span><span class="chip">Express.js</span><span class="chip">REST APIs</span>
+          <span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">MySQL</span>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-sys" role="tabpanel" aria-labelledby="tab-sys">
+        <div>
+          <h3>Cloud &amp; Systems</h3>
+          <p class="panel-note">The unusual part of my stack for a web person: real systems coursework — device drivers, file systems, OS internals.</p>
+        </div>
+        <div class="chip-cloud">
+          <span class="chip hot">AWS EC2</span><span class="chip hot">Docker</span>
+          <span class="chip">Docker Compose</span><span class="chip">Ubuntu Server</span>
+          <span class="chip">Linux/Unix</span><span class="chip">Device drivers</span>
+          <span class="chip">File systems</span><span class="chip">OS internals</span>
+          <span class="chip">Git / GitHub</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE + EDUCATION ================= -->
+<section id="history" class="history on-light section-pad" data-nav-tone="light">
+  <div class="wrap">
+    <div class="sub-head reveal">Experience</div>
+    <div class="edu-row reveal">
+      <div>
+        <h3>Freelance Web Developer</h3>
+        <div class="school">Self-employed</div>
+        <p class="edu-detail">
+          Built and shipped production sites for small-business clients in the automotive
+          and apparel sectors, owning scoping, build, and delivery end to end. Developed an
+          AI-assisted workflow using Cursor and Claude to cut build time, and managed client
+          relationships directly — translating non-technical requirements into scoped deliverables.
+        </p>
+      </div>
+      <div class="dates">2024 — Present</div>
+    </div>
+
+    <div class="sub-head reveal">Education</div>
+    <div class="edu-row reveal">
+      <div>
+        <h3>M.S. Artificial Intelligence</h3>
+        <div class="school">San José State University</div>
+      </div>
+      <div class="dates">Expected May 2028</div>
+    </div>
+    <div class="edu-row reveal">
+      <div>
+        <h3>B.S. Computer Science</h3>
+        <div class="school">San Francisco State University</div>
+      </div>
+      <div class="dates">Aug 2021 — Aug 2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT (dark) ================= -->
+<section id="contact" class="contact on-dark" data-nav-tone="dark">
+  <div class="wrap">
+    <span class="eyebrow reveal">Contact</span>
+    <h2 class="reveal">Let's talk.</h2>
+    <p class="reveal reveal-d1">
+      I'm looking for AI software engineering roles where I can ship product,
+      not just experiments. Email is fastest — or ask the terminal for anything else.
+    </p>
+    <div class="contact-actions reveal reveal-d2">
+      <a class="btn btn-primary" href="mailto:abrockenborough03@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://github.com/andrewb-03" target="_blank" rel="noopener">GitHub</a>
+      <!-- TODO: add LinkedIn URL -->
+      <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" data-nav-tone="dark">
+  <div class="wrap footer-row">
+    <span>© 2026 Andrew Brockenborough</span>
+    <span>built by hand · powered by an LLM that only says nice things about me</span>
+  </div>
+</footer>
+
+<!-- Your existing scripts, same paths as your current index.html — all chat IDs and classes are preserved. -->
+<!-- API config must load before script.js for mobile/same-network support -->
+<script src="js/api-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="js/content-routes.js"></script>
+<script src="script.js"></script>
+
+<script>
+(function(){
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- 1. Nav tone switching (Ohm-style) ---------- */
+  var header = document.getElementById("site-header");
+  var toned = document.querySelectorAll("[data-nav-tone]");
+  function updateNavTone(){
+    var probe = 64; // nav height; sample the section under the nav
+    var current = "light";
+    toned.forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if (r.top <= probe && r.bottom >= probe) current = el.getAttribute("data-nav-tone");
+    });
+    header.classList.toggle("tone-dark", current === "dark");
+  }
+  window.addEventListener("scroll", updateNavTone, { passive:true });
+  window.addEventListener("resize", updateNavTone);
+  updateNavTone();
+
+  /* ---------- 2. Scroll reveals ---------- */
+  var reveals = document.querySelectorAll(".reveal");
+  if (reduceMotion) {
+    reveals.forEach(function(el){ el.classList.add("in"); });
+  } else if ("IntersectionObserver" in window) {
+    var ro = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add("in"); ro.unobserve(e.target); }
+      });
+    }, { threshold:.15 });
+    reveals.forEach(function(el){ ro.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* ---------- 3. Animated counters ---------- */
+  var counters = document.querySelectorAll("[data-count]");
+  function runCounter(el){
+    var target = parseFloat(el.getAttribute("data-count"));
+    var dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
+    if (reduceMotion) { el.textContent = target.toFixed(dec); return; }
+    var start = null, dur = 1100;
+    function tick(ts){
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toFixed(dec);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ("IntersectionObserver" in window) {
+    var co = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { runCounter(e.target); co.unobserve(e.target); }
+      });
+    }, { threshold:.6 });
+    counters.forEach(function(el){ co.observe(el); });
+  } else {
+    counters.forEach(runCounter);
+  }
+
+  /* ---------- 4. Gloss scrollytelling ---------- */
+  var track = document.getElementById("scrolly-track");
+  var mock = document.getElementById("gloss-mock");
+  var bar = document.getElementById("scrolly-bar");
+  var steps = document.querySelectorAll(".step");
+  var streamEl = document.getElementById("gloss-stream");
+  var streamText = "A twin-scroll turbo splits exhaust pulses into two paths so they don't interfere, spooling the turbine sooner \u2014 less lag, stronger low-end torque.";
+  var streamTimer = null, streamed = false;
+
+  function typeStream(){
+    if (streamed) return;
+    streamed = true;
+    if (reduceMotion) { streamEl.textContent = streamText; return; }
+    var i = 0;
+    streamEl.textContent = "";
+    streamTimer = setInterval(function(){
+      i += 2 + Math.floor(Math.random() * 3); // uneven chunks, like SSE deltas
+      streamEl.textContent = streamText.slice(0, i);
+      if (i >= streamText.length) { clearInterval(streamTimer); }
+    }, 28);
+  }
+
+  function isDesktopScrolly(){ return window.matchMedia("(min-width: 901px)").matches; }
+
+  function setStage(n){
+    mock.className = "mock s" + (n + 1); // s1..s3
+    steps.forEach(function(s, i){ s.classList.toggle("active", i === n); });
+    if (n >= 1) typeStream();
+  }
+
+  function onScrolly(){
+    if (!track || !isDesktopScrolly()) return;
+    var r = track.getBoundingClientRect();
+    var total = r.height - window.innerHeight;
+    var progress = Math.min(Math.max(-r.top / total, 0), 1);
+    if (bar) bar.style.width = (progress * 100) + "%";
+    var n = Math.min(Math.floor(progress * 3), 2);
+    setStage(n);
+  }
+  window.addEventListener("scroll", onScrolly, { passive:true });
+  onScrolly();
+
+  // Mobile: everything visible in final state; type the stream when it scrolls into view
+  if (!isDesktopScrolly() && "IntersectionObserver" in window && streamEl) {
+    var so = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { typeStream(); so.unobserve(e.target); }
+      });
+    }, { threshold:.4 });
+    so.observe(streamEl);
+  }
+
+  /* ---------- 5. Skills tabs ---------- */
+  var tabs = document.querySelectorAll(".tab-btn");
+  var panels = document.querySelectorAll(".tab-panel");
+  tabs.forEach(function(tab){
+    tab.addEventListener("click", function(){
+      tabs.forEach(function(t){ t.setAttribute("aria-selected", "false"); });
+      panels.forEach(function(p){ p.classList.remove("show"); });
+      tab.setAttribute("aria-selected", "true");
+      document.getElementById(tab.getAttribute("aria-controls")).classList.add("show");
+    });
+  });
+
+  /* ---------- 5b. Chat send button: fires the same Enter handler script.js binds ---------- */
+  var sendBtn = document.getElementById("chat-send");
+  var chatInput = document.getElementById("chat-input");
+  if (sendBtn && chatInput) {
+    sendBtn.addEventListener("click", function(){
+      chatInput.dispatchEvent(new KeyboardEvent("keydown", { key:"Enter", code:"Enter", keyCode:13, which:13, bubbles:true }));
+      chatInput.focus();
+    });
+  }
+
+  /* ---------- 6. Hero ambient canvas: drifting dot grid ---------- */
+  var canvas = document.getElementById("hero-canvas");
+  if (canvas && !reduceMotion) {
+    var ctx = canvas.getContext("2d");
+    var hero = canvas.parentElement;
+    var dots = [], mouse = { x:-9999, y:-9999 };
+    function sizeCanvas(){
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = hero.offsetWidth * dpr;
+      canvas.height = hero.offsetHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      dots = [];
+      var gap = 42;
+      for (var x = gap/2; x < hero.offsetWidth; x += gap)
+        for (var y = gap/2; y < hero.offsetHeight; y += gap)
+          dots.push({ x:x, y:y, phase: Math.random() * Math.PI * 2 });
+    }
+    sizeCanvas();
+    window.addEventListener("resize", sizeCanvas);
+    hero.addEventListener("mousemove", function(e){
+      var r = hero.getBoundingClientRect();
+      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+    });
+    hero.addEventListener("mouseleave", function(){ mouse.x = mouse.y = -9999; });
+    var t = 0;
+    (function draw(){
+      t += 0.012;
+      ctx.clearRect(0, 0, hero.offsetWidth, hero.offsetHeight);
+      for (var i = 0; i < dots.length; i++) {
+        var d = dots[i];
+        var pulse = 0.35 + 0.25 * Math.sin(t + d.phase);
+        var dx = d.x - mouse.x, dy = d.y - mouse.y;
+        var dist2 = dx*dx + dy*dy;
+        var boost = dist2 < 22500 ? (1 - dist2 / 22500) : 0; // 150px radius glow
+        var alpha = 0.05 + pulse * 0.05 + boost * 0.5;
+        var size = 1 + boost * 1.4;
+        ctx.fillStyle = "rgba(62, 207, 142, " + alpha.toFixed(3) + ")";
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      requestAnimationFrame(draw);
+    })();
+  }
+})();
+</script>
+
+<!-- DEMO FALLBACK: makes the terminal respond when previewing this file locally
+     without your backend. Delete this block once script.js is wired up. -->
+<script>
+(function(){
+  var input = document.getElementById('chat-input');
+  var messages = document.getElementById('chat-messages');
+  if (!input || !messages || window.__portfolioChatActive) return;
+
+  var canned = {
+    education: "Andrew holds a B.S. in Computer Science from San Francisco State (Aug 2021 – Aug 2025) and is pursuing an M.S. in Artificial Intelligence at San José State (expected May 2028).",
+    projects: "Highlights: Gloss (MV3 Chrome extension, median 1.7s streamed explanations), this AI portfolio agent, QuantAnalyst (AI chart analysis), and freelance client sites in the automotive and apparel sectors.",
+    skills: "Python, JavaScript, C++, SQL, MIPS Assembly — plus Anthropic API, RAG, structured JSON outputs, React, Node.js, PostgreSQL, Docker, and AWS EC2.",
+    contact: "Email abrockenborough03@gmail.com, or find Andrew on GitHub at andrewb-03."
+  };
+
+  function respond(q){
+    var lower = q.toLowerCase();
+    var key = Object.keys(canned).find(function(k){ return lower.indexOf(k.slice(0,5)) !== -1; });
+    return canned[key] || "Demo mode — connect the portfolio API (script.js) for real answers. Meanwhile: Andrew builds AI-native web products and ships them.";
+  }
+
+  function append(cls, text){
+    var el = document.createElement('div');
+    el.className = cls;
+    el.textContent = text;
+    messages.appendChild(el);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function ask(q){
+    if(!q.trim()) return;
+    append('chat-msg-user', q);
+    setTimeout(function(){ append('chat-msg-ai', respond(q)); }, 350);
+    input.value = '';
+  }
+
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter') ask(input.value);
+  });
+  document.querySelectorAll('.suggestion-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){ ask(btn.getAttribute('data-question')); });
+  });
+})();
+</script>
+
 </body>
-</html> 
+</html>
