@@ -257,7 +257,7 @@ section{position:relative}
 .section-head h2{font-family:var(--display);font-weight:600;font-size:clamp(28px,3.4vw,38px);letter-spacing:-.015em}
 .section-head p{color:var(--muted);font-size:15px;max-width:44ch}
 
-/* ---------- Gloss scrollytelling (signature) ---------- */
+/* ---------- Anode scrollytelling (signature) ---------- */
 .scrolly{background:var(--card)}
 .scrolly-track{position:relative;height:320vh}
 .scrolly-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
@@ -277,7 +277,7 @@ section{position:relative}
 .scrolly-progress{margin-top:18px;height:2px;background:var(--line);border-radius:2px;overflow:hidden;max-width:220px}
 .scrolly-progress i{display:block;height:100%;width:0;background:var(--term-green)}
 
-/* Browser mockup — light article page (what Gloss actually runs on) */
+/* Browser mockup — the Anode app window */
 .mock{
   background:var(--card);border:1px solid var(--line);border-radius:14px;
   box-shadow:0 30px 80px -30px rgba(11,16,13,.28);overflow:hidden;
@@ -289,31 +289,36 @@ section{position:relative}
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .mock-page{position:relative;padding:30px 32px 34px;min-height:340px;font-family:var(--body);background:var(--card)}
-.article-kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
-.article-title{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.01em;line-height:1.25;color:var(--ink);margin-bottom:6px}
-.article-byline{font-size:12px;color:var(--muted);margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
-.mock-text{color:#3E4A43;font-size:13.5px;line-height:1.85;max-width:56ch;margin-bottom:12px}
-.mock-skeleton{height:9px;border-radius:4px;background:var(--line);opacity:.55;margin-bottom:10px}
-.mock-skeleton.w80{width:80%}
-.mock-skeleton.w60{width:60%}
-.mock-fade{position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(to bottom,rgba(255,255,255,0),var(--card));pointer-events:none}
-.hl{
-  border-radius:3px;padding:1px 3px;color:var(--ink);
-  background:transparent;transition:background .4s ease,box-shadow .4s ease;
+.anode-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.anode-brand{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--ink)}
+.anode-meta{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.03em}
+.anode-anom{color:#C2452E;font-weight:500}
+.anode-chart-label{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin:10px 0 6px;letter-spacing:.04em}
+.anode-chart{width:100%;height:170px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.anode-grid line{stroke:var(--line);stroke-width:1;opacity:.6}
+.anode-chart .tr{fill:none;stroke:#7FA3BF;stroke-width:2;opacity:.8;vector-effect:non-scaling-stroke}
+.anode-chart .tr-bad{stroke:#7FA3BF;opacity:.85;transition:stroke .5s ease,stroke-width .5s ease}
+.mock.s2 .tr-bad,.mock.s3 .tr-bad{stroke:#C2452E;stroke-width:3;opacity:1}
+.anom-row{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:10.5px;color:var(--muted);
+  border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-top:10px;
+  opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease;
 }
-.mock.s1 .hl,.mock.s2 .hl,.mock.s3 .hl{background:rgba(62,207,142,.28);box-shadow:0 0 0 1px rgba(14,123,76,.35)}
+.mock.s2 .anom-row,.mock.s3 .anom-row{opacity:1;transform:none}
+.anom-cell{color:var(--ink);font-weight:500}
+.anom-sev{color:#C2452E;border:1px solid rgba(194,69,46,.35);background:rgba(194,69,46,.08);border-radius:99px;padding:1px 8px}
 .gloss-pop{
   position:absolute;left:28px;right:28px;bottom:24px;z-index:1;
   background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;
   box-shadow:0 16px 44px -16px rgba(11,16,13,.3);
   opacity:0;transform:translateY(14px);transition:opacity .4s ease,transform .4s ease;
 }
-.mock.s2 .gloss-pop,.mock.s3 .gloss-pop{opacity:1;transform:none}
+.mock.s3 .gloss-pop{opacity:1;transform:none}
 .gloss-pop .pop-head{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:8px}
 .pop-dot{width:7px;height:7px;border-radius:50%;background:var(--term-green)}
 .gloss-stream{font-size:12.5px;color:var(--ink);line-height:1.65;min-height:3.2em}
 .gloss-stream::after{content:"▍";color:var(--green);animation:blink 1s steps(1) infinite}
-.mock.s3 .gloss-stream::after{content:""}
 .gloss-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;opacity:0;transition:opacity .4s ease}
 .mock.s3 .gloss-chips{opacity:1}
 .gchip{font-family:var(--mono);font-size:10.5px;color:var(--green);background:var(--green-soft);border:1px solid rgba(14,123,76,.2);border-radius:99px;padding:3px 10px}
@@ -324,7 +329,8 @@ section{position:relative}
   .step{opacity:1;border-color:var(--term-green)}
   .scrolly-progress{display:none}
   .mock{order:-1}
-  .mock.s0 .hl{background:rgba(62,207,142,.22);box-shadow:0 0 0 1px rgba(62,207,142,.35)}
+  .mock.s0 .tr-bad{stroke:#C2452E;stroke-width:3;opacity:1}
+  .mock.s0 .anom-row{opacity:1;transform:none}
   .mock.s0 .gloss-pop{opacity:1;transform:none}
   .mock.s0 .gloss-chips{opacity:1}
   .mock.s0 .gloss-stream::after{content:""}
@@ -415,7 +421,7 @@ section{position:relative}
   <nav class="nav wrap" aria-label="Main">
     <a href="#home" class="site-logo">abrockenborough<span class="tld">.dev</span></a>
     <ul class="nav-links">
-      <li class="hide-mobile"><a class="nav-link" href="#gloss">Gloss</a></li>
+      <li class="hide-mobile"><a class="nav-link" href="#anode">Anode</a></li>
       <li class="hide-mobile"><a class="nav-link" href="#projects">Projects</a></li>
       <li class="hide-mobile"><a class="nav-link" href="#skills">Skills</a></li>
       <li class="hide-mobile"><a class="nav-link" href="#history">Background</a></li>
@@ -496,31 +502,31 @@ section{position:relative}
   </div>
 </div>
 
-<!-- ================= GLOSS SCROLLYTELLING (signature) ================= -->
-<section id="gloss" class="scrolly on-light" data-nav-tone="light">
+<!-- ================= ANODE SCROLLYTELLING (signature) ================= -->
+<section id="anode" class="scrolly on-light" data-nav-tone="light">
   <div class="scrolly-track" id="scrolly-track">
     <div class="scrolly-sticky">
       <div class="wrap scrolly-grid">
         <div class="scrolly-steps">
           <div class="scrolly-intro">
             <span class="eyebrow">Recent Project</span>
-            <h2><b>Gloss</b></h2>
-            <p>A Manifest V3 extension that explains any highlighted text in place. Keep scrolling to walk through how it works.</p>
+            <h2><b>Anode</b></h2>
+            <p>A browser-based battery test data analyzer — built in a weekend, zero dependencies. Keep scrolling to walk through how it works.</p>
           </div>
           <div class="step" data-step="0">
-            <span class="step-tag">01 · Select</span>
-            <h3>Highlight anything, anywhere</h3>
-            <p>Selection highlights render as overlay rects from Range.getClientRects() — zero host-DOM mutation, so framework-rendered pages never break.</p>
+            <span class="step-tag">01 · Ingest</span>
+            <h3>A full test run, no backend</h3>
+            <p>A synthetic Li-ion generator (tanh OCV curves, IR drop, per-cycle fade) or CSV upload — capacity computed by trapezoidal current integration, entirely client-side.</p>
           </div>
           <div class="step" data-step="1">
-            <span class="step-tag">02 · Stream</span>
-            <h3>Explanation streams in place</h3>
-            <p>SSE deltas flow from service worker to content script over a long-lived port, with disconnect-driven AbortController cancellation. Median 1.7s to full explanation.</p>
+            <span class="step-tag">02 · Detect</span>
+            <h3>Four detectors, one red trace</h3>
+            <p>Robust z-scores (median/MAD) on fade slopes, sudden capacity steps, thermal outliers, and voltage sag vs fleet. Healthy cells trace slate — failing cells trace red.</p>
           </div>
           <div class="step" data-step="2">
-            <span class="step-tag">03 · Ship</span>
-            <h3>Fully client-side, published</h3>
-            <p>Shadow DOM isolation, session-scoped caching keyed by selection hash, and BYOK auth — no key in the package, no backend required.</p>
+            <span class="step-tag">03 · Summarize</span>
+            <h3>Claude drafts the engineering read</h3>
+            <p>Run stats compress to JSON and one BYO-key request returns a test-engineer summary — fleet health, outlier cells, recommended next tests.</p>
           </div>
           <div class="scrolly-progress"><i id="scrolly-bar"></i></div>
         </div>
@@ -529,31 +535,41 @@ section{position:relative}
             <span class="terminal-btn terminal-btn-close"></span>
             <span class="terminal-btn terminal-btn-minimize"></span>
             <span class="terminal-btn terminal-btn-maximize"></span>
-            <span class="mock-url">theapexreview.com/tech/twin-scroll-turbos-explained</span>
+            <span class="mock-url">andrewb-03.github.io/anode</span>
           </div>
-          <div class="mock-page">
-            <div class="article-kicker">Engineering · 6 min read</div>
-            <div class="article-title">Why Twin-Scroll Turbos Took Over Performance Engines</div>
-            <div class="article-byline">By Sam Ortega · March 12, 2026</div>
-            <p class="mock-text">
-              Forced induction has become the default path to power density, but
-              turbo lag remained the tradeoff nobody wanted. The fix that stuck:
-              a <span class="hl">twin-scroll turbocharger</span>, which separates
-              exhaust pulses into paired runners so they never interfere with
-              each other on the way to the turbine.
-            </p>
-            <div class="mock-skeleton"></div>
-            <div class="mock-skeleton w80"></div>
-            <div class="mock-skeleton"></div>
-            <div class="mock-skeleton w60"></div>
-            <div class="mock-fade"></div>
-            <div class="gloss-pop">
-              <div class="pop-head"><span class="pop-dot"></span> gloss · explaining selection</div>
+          <div class="mock-page anode-page">
+            <div class="anode-head">
+              <span class="anode-brand">Anode</span>
+              <span class="anode-meta">RUN SYN-482913 · CELLS 8 · CYCLES 40 · <b class="anode-anom">ANOMALIES 4</b></span>
+            </div>
+            <div class="anode-chart-label">Capacity fade — Ah vs cycle</div>
+            <svg class="anode-chart" viewBox="0 0 400 170" preserveAspectRatio="none" aria-hidden="true">
+              <g class="anode-grid">
+                <line x1="0" y1="42" x2="400" y2="42"/><line x1="0" y1="84" x2="400" y2="84"/><line x1="0" y1="126" x2="400" y2="126"/>
+                <line x1="100" y1="0" x2="100" y2="170"/><line x1="200" y1="0" x2="200" y2="170"/><line x1="300" y1="0" x2="300" y2="170"/>
+              </g>
+              <polyline class="tr" points="0,22 100,25 200,28 300,32 400,36"/>
+              <polyline class="tr" points="0,30 100,32 200,35 300,37 400,41"/>
+              <polyline class="tr" points="0,38 100,41 200,43 300,47 400,50"/>
+              <polyline class="tr" points="0,26 100,28 200,32 300,34 400,38"/>
+              <polyline class="tr" points="0,44 100,46 200,49 300,52 400,56"/>
+              <polyline class="tr" points="0,34 100,37 200,39 300,43 400,46"/>
+              <polyline class="tr" points="0,48 100,50 200,53 300,56 400,60"/>
+              <polyline class="tr tr-bad" points="0,40 100,52 200,68 210,84 300,104 400,128"/>
+            </svg>
+            <div class="anom-row">
+              <span class="anom-cell">C07</span>
+              <span class="anom-type">CAPACITY FADE</span>
+              <span class="anom-sev">HIGH</span>
+              <span class="anom-detail">−0.29%/cycle vs fleet −0.04 · robust z = −22.6</span>
+            </div>
+            <div class="gloss-pop anode-pop">
+              <div class="pop-head"><span class="pop-dot"></span> anode · engineering summary</div>
               <div class="gloss-stream" id="gloss-stream"></div>
               <div class="gloss-chips">
-                <span class="gchip">shadow dom</span>
+                <span class="gchip">median/MAD z-scores</span>
                 <span class="gchip">byok · client-side</span>
-                <span class="gchip">median 1.7s</span>
+                <span class="gchip">zero dependencies</span>
               </div>
             </div>
           </div>
@@ -585,6 +601,24 @@ section{position:relative}
 
       <article class="project-card reveal">
         <div class="project-top">
+          <h3>Anode</h3>
+          <span class="project-badge">New</span>
+        </div>
+        <p>
+          The battery test analyzer from the walkthrough above — synthetic Li-ion
+          cycling data or CSV ingest, four statistical anomaly detectors, and an
+          optional Claude-drafted engineering summary. Zero dependencies, hand-rolled
+          canvas charts, fully client-side.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Vanilla JS</span><span class="tag">Canvas</span>
+          <span class="tag">Statistical detection</span><span class="tag">Anthropic API</span>
+        </div>
+        <a class="project-link" href="https://andrewb-03.github.io/anode/">View live demo →</a>
+      </article>
+
+      <article class="project-card reveal reveal-d1">
+        <div class="project-top">
           <h3>QuantAnalyst</h3>
           <span class="project-badge">Live</span>
         </div>
@@ -602,7 +636,7 @@ section{position:relative}
         <a class="project-link" href="https://www.quantanalyst.ai/">View live site →</a>
       </article>
 
-      <article class="project-card reveal reveal-d1">
+      <article class="project-card reveal">
         <div class="project-top">
           <h3>Portfolio “ask” agent</h3>
           <span class="project-badge">Live on this page</span>
@@ -619,15 +653,15 @@ section{position:relative}
         <a class="project-link" href="#home">Ask it something →</a>
       </article>
 
-      <article class="project-card reveal">
+      <article class="project-card reveal reveal-d1">
         <div class="project-top">
           <h3>Gloss</h3>
           <span class="project-badge">Extension</span>
         </div>
         <p>
-          The browser extension from the walkthrough above — built, debugged, and published
-          end to end. Streaming SSE architecture, Shadow DOM isolation, and BYOK auth
-          keeping it fully client-side.
+          A Manifest V3 extension that explains any highlighted text in place — built,
+          debugged, and published to the Chrome Web Store end to end. Streaming SSE
+          architecture, Shadow DOM isolation, and BYOK auth keeping it fully client-side.
         </p>
         <div class="tag-row">
           <span class="tag">JavaScript</span><span class="tag">MV3</span>
@@ -637,7 +671,7 @@ section{position:relative}
         <a class="project-link" href="https://github.com/andrewb-03/Gloss">View GitHub Repository→</a>
       </article>
 
-      <article class="project-card reveal reveal-d1">
+      <article class="project-card reveal">
         <div class="project-top">
           <h3>Client sites</h3>
           <span class="project-badge">Freelance</span>
@@ -859,13 +893,13 @@ section{position:relative}
     counters.forEach(runCounter);
   }
 
-  /* ---------- 4. Gloss scrollytelling ---------- */
+  /* ---------- 4. Anode scrollytelling ---------- */
   var track = document.getElementById("scrolly-track");
   var mock = document.getElementById("gloss-mock");
   var bar = document.getElementById("scrolly-bar");
   var steps = document.querySelectorAll(".step");
   var streamEl = document.getElementById("gloss-stream");
-  var streamText = "A twin-scroll turbo splits exhaust pulses into two paths so they don't interfere, spooling the turbine sooner \u2014 less lag, stronger low-end torque.";
+  var streamText = "Fleet health nominal across 7 of 8 cells. C07 shows accelerated fade (\u22120.29%/cycle vs fleet \u22120.04) with correlated thermal rise \u2014 consistent with elevated internal resistance. Recommend EIS and a C/10 capacity check.";
   var streamTimer = null, streamed = false;
 
   function typeStream(){
@@ -886,7 +920,7 @@ section{position:relative}
   function setStage(n){
     mock.className = "mock s" + (n + 1); // s1..s3
     steps.forEach(function(s, i){ s.classList.toggle("active", i === n); });
-    if (n >= 1) typeStream();
+    if (n >= 2) typeStream();
   }
 
   function onScrolly(){

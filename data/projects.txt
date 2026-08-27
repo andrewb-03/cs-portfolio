@@ -1,5 +1,24 @@
 Projects:
 
+Anode — Battery Test Data Analyzer (Browser-Based Demo)
+Description:
+A browser-based battery test data analyzer built in a single weekend. Ingests Li-ion cell cycling data (a realistic synthetic generator or user CSV upload), flags statistical outlier cells, and optionally drafts a test-engineer summary via the Anthropic API. Built as a demo in the problem space of Ohm, an enterprise AI platform for hardware test engineering — the thesis that physical product development generates enormous test data that mostly goes unused.
+
+Role: Creator / Sole Engineer
+Status: Live on GitHub Pages (August 2026 – Present)
+
+Key Features:
+- Synthetic Li-ion cycling data generator with realistic physics: tanh-approximated OCV discharge curves, IR drop under load, per-cycle capacity fade, thermal rise, and optional seeded faulty cells
+- Four client-side statistical anomaly detectors: capacity fade-rate outliers (robust z-score via median/MAD on per-cell least-squares fade slopes vs fleet), sudden capacity steps between consecutive cycles, per-cycle peak-temperature outliers, and mid-discharge voltage sag vs fleet median (elevated internal resistance signature)
+- CSV ingest with schema: cell_id, cycle, time_s, voltage_v, current_a, temp_c
+- Capacity computed by trapezoidal current integration; healthy cells trace in slate, flagged cells trace in red across all charts
+- Optional AI engineering summary via bring-your-own Anthropic API key — the key stays in the browser, one request goes directly to api.anthropic.com
+- Zero dependencies, one HTML file, hand-rolled canvas charts, no backend — everything runs client-side
+
+Technologies:
+Vanilla JavaScript, HTML Canvas, statistical anomaly detection, Anthropic API, GitHub Pages
+
+
 Gloss — Chrome Extension (Published on the Chrome Web Store)
 Description:
 A Manifest V3 Chrome extension that explains any highlighted text in place via a streaming LLM call. Median 1.7 seconds to full explanation, p90 2.3s, measured across live pages. Built, debugged, and published end to end, solo.
