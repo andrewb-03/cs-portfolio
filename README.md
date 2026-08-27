@@ -40,7 +40,7 @@ Point `js/api-config.js` at `http://localhost:8000` and the terminal talks to yo
 ## Projects featured
 
 - **Anode** — battery test data analyzer: statistical anomaly detection + AI engineering summaries, fully client-side ([live](https://andrewb-03.github.io/anode/))
-- **Gloss** — Chrome MV3 extension explaining highlighted text via streaming LLM calls, published on the Chrome Web Store
+- **Gloss** — browser extension explaining highlighted text via streaming LLM calls
 - **QuantAnalyst** — AI chart analysis: screenshot → structured technical read with probability-weighted scenarios
 - **Freelance client sites** — production work for automotive and apparel businesses
 
